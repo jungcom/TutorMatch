@@ -7,12 +7,20 @@
 //
 
 import UIKit
-import Parse
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var errorTextLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,7 +39,7 @@ class LoginViewController: UIViewController {
         //Set Placeholder Attributes
         let attributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font : UIFont(name: "Courier New", size: 20)!,
+            NSAttributedString.Key.font : UIFont(name: "Courier New", size: 17)!,
             ]
         
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes:attributes)
@@ -50,17 +58,43 @@ class LoginViewController: UIViewController {
         let passwordIcon = UIImage(named: "password_icon")
         LoginViewController.setTextFieldImage(userIcon, textField: usernameTextField)
         LoginViewController.setTextFieldImage(passwordIcon, textField: passwordTextField)
+        
+        //set button Borders
+        logInButton.layer.cornerRadius = 15
+        logInButton.layer.borderWidth = 1.0
+        logInButton.layer.borderColor = UIColor.white.cgColor
     }
     
     @IBAction func signIn(_ sender: Any) {
-        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if user != nil{
-                print("Logged In!")
-                self.performSegue(withIdentifier: "toLearnOrTeach", sender: nil)
-            } else {
-                print("\(error?.localizedDescription)")
-            }
+        let email = usernameTextField.text
+        let password = passwordTextField.text
+        
+        guard email != "" && password != "" else{
+            self.errorTextLabel.text = "Empty email/password field"
+            return
         }
+        
+        Auth.auth().signIn(withEmail: email!, password: password!, completion: { (user, error) in
+            guard let _ = user else {
+                if let error = error {
+                    if let errCode = AuthErrorCode(rawValue: error._code){
+                        switch (errCode){
+                        case .userNotFound:
+                            self.errorTextLabel.text = "User account not found"
+                        case .wrongPassword:
+                            self.errorTextLabel.text = "Incorrect password"
+                        case .invalidEmail:
+                            self.errorTextLabel.text = "Invalid email"
+                        default:
+                            self.errorTextLabel.text = "An error has occured. Please try again"
+                        }
+                    }
+                    print("Error: \(error.localizedDescription)")
+                }
+                return
+            }
+            self.signInTo()
+        })
     }
     
     @IBAction func tapDismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -68,6 +102,9 @@ class LoginViewController: UIViewController {
         passwordTextField.resignFirstResponder()
     }
     
+    func signInTo(){
+        self.performSegue(withIdentifier: "toLearnOrTeach", sender: nil)
+    }
 }
 
 //UI Setup and TextFieldDelegates

@@ -14,6 +14,7 @@ class MainFeedsViewController: UIViewController {
     
     var category = ["All","Music","Sports","Academic","Cooking","Art"]
     
+    //Mock Data
     var profilePic = ["mockPerson","profile1","profile2","profile3"]
     var course = ["Acoustic Guitar","Baking","IOS Development","Spray Painting"]
     var price = ["$10/hour","Free","$20/hour","Free"]

@@ -6,5 +6,7 @@ target 'ProjectX' do
   use_frameworks!
 
   # Pods for ProjectX
-  pod 'Parse'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end

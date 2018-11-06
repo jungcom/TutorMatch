@@ -15,13 +15,13 @@
 		4E54B675217F97AB00576C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E54B673217F97AB00576C0C /* Main.storyboard */; };
 		4E54B677217F97AD00576C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E54B676217F97AD00576C0C /* Assets.xcassets */; };
 		4E54B67A217F97AD00576C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E54B678217F97AD00576C0C /* LaunchScreen.storyboard */; };
-		4E54B683217F98F700576C0C /* LearnOrTeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B682217F98F700576C0C /* LearnOrTeachViewController.swift */; };
 		4E54B685217F998F00576C0C /* MainFeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B684217F998F00576C0C /* MainFeedsViewController.swift */; };
 		4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B68621801F5100576C0C /* SignUpViewController.swift */; };
 		4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */; };
 		4EAFEEB621860FE300D6C4F9 /* CategoryFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */; };
 		4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */; };
 		4EAFEEBB21863E7600D6C4F9 /* OfferClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEBA21863E7600D6C4F9 /* OfferClassTableViewCell.swift */; };
+		4EC217EB21908D5E00B711EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */; };
 		DFDAFAC15A1E2A0047448A55 /* Pods_ProjectX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687C2A9BC8368201E978B7F3 /* Pods_ProjectX.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,13 +36,13 @@
 		4E54B676217F97AD00576C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E54B679217F97AD00576C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E54B67B217F97AD00576C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E54B682217F98F700576C0C /* LearnOrTeachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnOrTeachViewController.swift; sourceTree = "<group>"; };
 		4E54B684217F998F00576C0C /* MainFeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedsViewController.swift; sourceTree = "<group>"; };
 		4E54B68621801F5100576C0C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFlowLayout.swift; sourceTree = "<group>"; };
 		4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassViewController.swift; sourceTree = "<group>"; };
 		4EAFEEBA21863E7600D6C4F9 /* OfferClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassTableViewCell.swift; sourceTree = "<group>"; };
+		4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		687C2A9BC8368201E978B7F3 /* Pods_ProjectX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CE71A3EB434D621FD73BBC /* Pods-ProjectX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectX/Pods-ProjectX.debug.xcconfig"; sourceTree = "<group>"; };
 		93F38F0E3D9FFBDF4E48D95A /* Pods-ProjectX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectX.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectX/Pods-ProjectX.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +98,7 @@
 				4E54B676217F97AD00576C0C /* Assets.xcassets */,
 				4E54B678217F97AD00576C0C /* LaunchScreen.storyboard */,
 				4E54B67B217F97AD00576C0C /* Info.plist */,
+				4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */,
 			);
 			path = ProjectX;
 			sourceTree = "<group>";
@@ -107,7 +108,6 @@
 			children = (
 				4E54B671217F97AB00576C0C /* LoginViewController.swift */,
 				4E54B68621801F5100576C0C /* SignUpViewController.swift */,
-				4E54B682217F98F700576C0C /* LearnOrTeachViewController.swift */,
 				4E54B684217F998F00576C0C /* MainFeedsViewController.swift */,
 				4E46530821860A6B00B022E0 /* ProfileViewController.swift */,
 				4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */,
@@ -211,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E54B67A217F97AD00576C0C /* LaunchScreen.storyboard in Resources */,
+				4EC217EB21908D5E00B711EF /* GoogleService-Info.plist in Resources */,
 				4E54B677217F97AD00576C0C /* Assets.xcassets in Resources */,
 				4E54B675217F97AB00576C0C /* Main.storyboard in Resources */,
 			);
@@ -228,15 +229,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ProjectX/Pods-ProjectX-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -276,7 +281,6 @@
 				4EAFEEB621860FE300D6C4F9 /* CategoryFlowLayout.swift in Sources */,
 				4E4653042185584300B022E0 /* TutorCollectionViewCell.swift in Sources */,
 				4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */,
-				4E54B683217F98F700576C0C /* LearnOrTeachViewController.swift in Sources */,
 				4E54B685217F998F00576C0C /* MainFeedsViewController.swift in Sources */,
 				4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */,
 				4EAFEEBB21863E7600D6C4F9 /* OfferClassTableViewCell.swift in Sources */,
