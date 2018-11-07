@@ -17,6 +17,7 @@
 		4E54B67A217F97AD00576C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E54B678217F97AD00576C0C /* LaunchScreen.storyboard */; };
 		4E54B685217F998F00576C0C /* MainFeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B684217F998F00576C0C /* MainFeedsViewController.swift */; };
 		4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B68621801F5100576C0C /* SignUpViewController.swift */; };
+		4E5F4C18219362290048E648 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C17219362290048E648 /* Post.swift */; };
 		4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */; };
 		4EAFEEB621860FE300D6C4F9 /* CategoryFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */; };
 		4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */; };
@@ -38,6 +39,7 @@
 		4E54B67B217F97AD00576C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E54B684217F998F00576C0C /* MainFeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedsViewController.swift; sourceTree = "<group>"; };
 		4E54B68621801F5100576C0C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4E5F4C17219362290048E648 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFlowLayout.swift; sourceTree = "<group>"; };
 		4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				4E54B678217F97AD00576C0C /* LaunchScreen.storyboard */,
 				4E54B67B217F97AD00576C0C /* Info.plist */,
 				4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */,
+				4E5F4C17219362290048E648 /* Post.swift */,
 			);
 			path = ProjectX;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				4E54B672217F97AB00576C0C /* LoginViewController.swift in Sources */,
 				4EAFEEB621860FE300D6C4F9 /* CategoryFlowLayout.swift in Sources */,
 				4E4653042185584300B022E0 /* TutorCollectionViewCell.swift in Sources */,
+				4E5F4C18219362290048E648 /* Post.swift in Sources */,
 				4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */,
 				4E54B685217F998F00576C0C /* MainFeedsViewController.swift in Sources */,
 				4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */,

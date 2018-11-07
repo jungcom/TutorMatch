@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class SignUpViewController: UIViewController {
 
@@ -17,11 +18,20 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        
+        //DataBase
+
+//        let databaseURL = "https://projectx-ed29a.firebaseio.com/"
+//        ref = Database.database().reference(fromURL: databaseURL)
+//        ref.updateChildValues(["any": 123123])
     }
     
     func setupUI(){
@@ -107,6 +117,20 @@ class SignUpViewController: UIViewController {
                 }
                 return
             }
+            
+            // if successful add user
+            let databaseURL = "https://projectx-ed29a.firebaseio.com/"
+            self.ref = Database.database().reference(fromURL: databaseURL)
+            let userRef = self.ref.child("users").childByAutoId()
+            let values = ["firstName":self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]
+            userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if err != nil{
+                    print(err?.localizedDescription)
+                    return
+                }
+                print("Saved user data to DB")
+            })
+            
             self.signInTo()
         })
     }

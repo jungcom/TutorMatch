@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class MainFeedsViewController: UIViewController {
+    //Database
+    var ref: DatabaseReference!
+    var handle: DatabaseHandle!
+    
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var tutorCollectionView: UICollectionView!
     
@@ -21,7 +26,6 @@ class MainFeedsViewController: UIViewController {
     var names = ["Bob","Jack","Chris","Mary",]
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
