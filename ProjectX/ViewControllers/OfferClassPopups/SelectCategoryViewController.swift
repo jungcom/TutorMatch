@@ -17,7 +17,10 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        popupView.layer.cornerRadius = 20
     }
+    
+    @IBOutlet weak var popupView: UIView!
     
     @IBAction func selectButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -42,17 +45,18 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return titles.count
+        return titles.count+1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if row == 0{
             return ""
+        }else {
+            return titles[row-1].rawValue
         }
-        return titles[row].rawValue
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        category = titles[row]
+        category = titles[row-1]
     }
 }

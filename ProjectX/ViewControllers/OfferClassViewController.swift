@@ -51,10 +51,12 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OfferClassTableViewCell", for: indexPath) as! OfferClassTableViewCell
         cell.titleLabel.text = titles[indexPath.row]
+        
         switch indexPath.row {
         case 0:
             if let category = category{
                 cell.selectedLabel.text = category.rawValue
+                cell.selectedLabel.textColor = Constants.green
             }
             break
         default: break
