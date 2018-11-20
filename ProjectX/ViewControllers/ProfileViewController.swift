@@ -25,12 +25,14 @@ class ProfileViewController: UIViewController {
     
     //See if user is logged in
     func checkIfUserIsLoggedIn(){
+        //logout if user is not logged in
         if Auth.auth().currentUser?.uid == nil{
             handleLogout()
         } else {
+            //Get user data if user is logged in
             if let uid = Auth.auth().currentUser?.uid{
                 
-                Database.database().reference(fromURL: "https://projectx-ed29a.firebaseio.com/").child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                Database.database().reference(fromURL: Constants.databaseURL).child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let dictionary = snapshot.value as? [String: AnyObject]{
                         self.userName.text = dictionary["firstName"] as? String
                     }

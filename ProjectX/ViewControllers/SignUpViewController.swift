@@ -119,12 +119,13 @@ class SignUpViewController: UIViewController {
             }
             
             // if successful add user
-            let databaseURL = "https://projectx-ed29a.firebaseio.com/"
+            let databaseURL = Constants.databaseURL
             guard let uid = Auth.auth().currentUser?.uid else {
                 print ("No UID")
                 return
             }
             
+            //Create a user and add to the Firebase database
             self.ref = Database.database().reference(fromURL: databaseURL)
             let userRef = self.ref.child("users").child(uid)
             let values = ["firstName":self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]

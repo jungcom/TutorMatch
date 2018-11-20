@@ -11,4 +11,5 @@ import UIKit
 
 struct Constants{
     static let green = UIColor.init(red: 86/255, green: 212/255, blue: 55/255, alpha: 1)
+    static let databaseURL = "https://projectx-ed29a.firebaseio.com/"
 }

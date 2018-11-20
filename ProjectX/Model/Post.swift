@@ -9,8 +9,10 @@
 import Foundation
 
 class Post{
-    var user : NSString?
-    var price : NSString?
-    var category : NSString?
+    var user : String?
+    var hourlyPay : String?
+    var category : String?
+    var subject: String?
+    var description : String?
     
 }
