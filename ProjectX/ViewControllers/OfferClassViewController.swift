@@ -58,7 +58,11 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
                 cell.selectedLabel.text = category.rawValue
                 cell.selectedLabel.textColor = Constants.green
             }
-            break
+        case 1:
+            if let subject = subject{
+                cell.selectedLabel.text = subject
+                cell.selectedLabel.textColor = Constants.green
+            }
         default: break
             
         }
@@ -67,8 +71,13 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0{
+        switch indexPath.row {
+        case 0:
             performSegue(withIdentifier: "SelectCategory", sender: nil)
+        case 1:
+            performSegue(withIdentifier: "SelectSubject", sender: nil)
+        default:
+            break
         }
     }
     

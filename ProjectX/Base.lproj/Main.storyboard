@@ -375,7 +375,8 @@
                     </view>
                     <connections>
                         <outlet property="offerClassTableView" destination="ulN-kV-TgB" id="q8d-D2-Fa0"/>
-                        <segue destination="l7V-Df-FIR" kind="presentation" identifier="SelectCategory" modalTransitionStyle="crossDissolve" id="MR2-mZ-3CE"/>
+                        <segue destination="l7V-Df-FIR" kind="presentation" identifier="SelectCategory" modalTransitionStyle="coverVertical" id="MR2-mZ-3CE"/>
+                        <segue destination="v5n-aY-AKs" kind="presentation" identifier="SelectSubject" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="xCh-q2-qDD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odU-fH-rxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -411,6 +412,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="cancel:" destination="l7V-Df-FIR" eventType="touchUpInside" id="bxI-ZM-AmY"/>
                                             <action selector="selectButton:" destination="l7V-Df-FIR" eventType="touchUpInside" id="2Cg-c8-xmV"/>
                                         </connections>
                                     </button>
@@ -441,20 +443,73 @@
             </objects>
             <point key="canvasLocation" x="3396" y="-896.40179910044981"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Subject View Controller-->
         <scene sceneID="VcF-RB-yUK">
             <objects>
-                <viewController id="v5n-aY-AKs" sceneMemberID="viewController">
+                <viewController id="v5n-aY-AKs" customClass="SelectSubjectViewController" customModule="ProjectX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fry-v1-heP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lti-Ed-R2x">
+                                <rect key="frame" x="65" y="234" width="244" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlp-Lk-NLQ">
+                                        <rect key="frame" x="130" y="156" width="114" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="v5n-aY-AKs" eventType="touchUpInside" id="cfF-Uq-vcc"/>
+                                            <action selector="selectButton:" destination="l7V-Df-FIR" eventType="touchUpInside" id="ozf-dS-dCX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNR-Wl-0dA">
+                                        <rect key="frame" x="0.0" y="156" width="130" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectButton:" destination="l7V-Df-FIR" eventType="touchUpInside" id="2cA-NB-Qek"/>
+                                            <action selector="selectButton:" destination="v5n-aY-AKs" eventType="touchUpInside" id="opW-YW-7zt"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert Subject Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhX-MX-nzH">
+                                        <rect key="frame" x="8" y="8" width="228" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OEc-ng-9Hq">
+                                        <rect key="frame" x="8" y="84" width="228" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.87265145705521474" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="V8X-N0-9Ry"/>
                     </view>
+                    <connections>
+                        <outlet property="popupView" destination="Lti-Ed-R2x" id="mKo-8k-lsw"/>
+                        <outlet property="subjectTextField" destination="OEc-ng-9Hq" id="XHP-gr-Jrs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tic-fL-02c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4169" y="-906"/>
+            <point key="canvasLocation" x="4072.8000000000002" y="-896.40179910044981"/>
         </scene>
         <!--Browse-->
         <scene sceneID="kul-PP-FPL">

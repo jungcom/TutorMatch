@@ -20,6 +20,10 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
         popupView.layer.cornerRadius = 20
     }
     
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var popupView: UIView!
     
     @IBAction func selectButton(_ sender: Any) {
