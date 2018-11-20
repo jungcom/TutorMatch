@@ -10,6 +10,8 @@
 		4E207AE221A1D2D1007005A4 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207AE121A1D2D1007005A4 /* SelectCategoryViewController.swift */; };
 		4E207AE421A46840007005A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207AE321A46840007005A4 /* Constants.swift */; };
 		4E207AE621A46C4C007005A4 /* SelectSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207AE521A46C4C007005A4 /* SelectSubjectViewController.swift */; };
+		4E207AE821A47B2A007005A4 /* SelectDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207AE721A47B2A007005A4 /* SelectDescriptionViewController.swift */; };
+		4E207AEA21A47D01007005A4 /* SelectHourlyPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E207AE921A47D01007005A4 /* SelectHourlyPayViewController.swift */; };
 		4E4653042185584300B022E0 /* TutorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4653032185584300B022E0 /* TutorCollectionViewCell.swift */; };
 		4E46530621855E3B00B022E0 /* TutorFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E46530521855E3B00B022E0 /* TutorFlowLayout.swift */; };
 		4E46530921860A6B00B022E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E46530821860A6B00B022E0 /* ProfileViewController.swift */; };
@@ -35,6 +37,8 @@
 		4E207AE121A1D2D1007005A4 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 		4E207AE321A46840007005A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4E207AE521A46C4C007005A4 /* SelectSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubjectViewController.swift; sourceTree = "<group>"; };
+		4E207AE721A47B2A007005A4 /* SelectDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDescriptionViewController.swift; sourceTree = "<group>"; };
+		4E207AE921A47D01007005A4 /* SelectHourlyPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHourlyPayViewController.swift; sourceTree = "<group>"; };
 		4E4653032185584300B022E0 /* TutorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E46530521855E3B00B022E0 /* TutorFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorFlowLayout.swift; sourceTree = "<group>"; };
 		4E46530821860A6B00B022E0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 			children = (
 				4E207AE121A1D2D1007005A4 /* SelectCategoryViewController.swift */,
 				4E207AE521A46C4C007005A4 /* SelectSubjectViewController.swift */,
+				4E207AE721A47B2A007005A4 /* SelectDescriptionViewController.swift */,
+				4E207AE921A47D01007005A4 /* SelectHourlyPayViewController.swift */,
 			);
 			path = OfferClassPopups;
 			sourceTree = "<group>";
@@ -320,10 +326,12 @@
 				4E54B685217F998F00576C0C /* MainFeedsViewController.swift in Sources */,
 				4E207AE621A46C4C007005A4 /* SelectSubjectViewController.swift in Sources */,
 				4E207AE421A46840007005A4 /* Constants.swift in Sources */,
+				4E207AE821A47B2A007005A4 /* SelectDescriptionViewController.swift in Sources */,
 				4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */,
 				4EAFEEBB21863E7600D6C4F9 /* OfferClassTableViewCell.swift in Sources */,
 				4E54B670217F97AB00576C0C /* AppDelegate.swift in Sources */,
 				4E46530621855E3B00B022E0 /* TutorFlowLayout.swift in Sources */,
+				4E207AEA21A47D01007005A4 /* SelectHourlyPayViewController.swift in Sources */,
 				4E46530921860A6B00B022E0 /* ProfileViewController.swift in Sources */,
 				4E207AE221A1D2D1007005A4 /* SelectCategoryViewController.swift in Sources */,
 				4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */,
