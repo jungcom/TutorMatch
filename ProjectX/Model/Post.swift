@@ -9,7 +9,7 @@
 import Foundation
 
 class Post{
-    var user : String?
+    var userID : String?
     var hourlyPay : String?
     var category : String?
     var subject: String?

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OfferClassViewController: UIViewController {
     @IBOutlet weak var offerClassTableView: UITableView!
@@ -31,6 +32,25 @@ class OfferClassViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func postClass(_ sender: Any) {
+        //Check Current User
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print ("No UID")
+            return
+        }
+        let ref = Database.database().reference(fromURL: Constants.databaseURL)
+        let postRef = ref.child("posts")
+        let values = ["userID": uid, "category" : category?.rawValue, "subject" : subject]
+        postRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            if err != nil{
+                print(err?.localizedDescription)
+                return
+            }
+            print("Saved user data to DB")
+        })
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CxF-pQ-Nti">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -294,7 +294,7 @@
                                             <color key="titleColor" red="0.97167620379999997" green="0.97976502590000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Jhz-HZ-MSs" kind="show" id="QlN-vr-Y64"/>
+                                            <action selector="postClass:" destination="CxF-pQ-Nti" eventType="touchUpInside" id="pdl-lB-cIo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -832,6 +832,6 @@
         <image name="profile" width="22" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QlN-vr-Y64"/>
+        <segue reference="BsD-DR-5Gq"/>
     </inferredMetricsTieBreakers>
 </document>
