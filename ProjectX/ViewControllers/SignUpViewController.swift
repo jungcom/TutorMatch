@@ -120,8 +120,13 @@ class SignUpViewController: UIViewController {
             
             // if successful add user
             let databaseURL = "https://projectx-ed29a.firebaseio.com/"
+            guard let uid = Auth.auth().currentUser?.uid else {
+                print ("No UID")
+                return
+            }
+            
             self.ref = Database.database().reference(fromURL: databaseURL)
-            let userRef = self.ref.child("users").childByAutoId()
+            let userRef = self.ref.child("users").child(uid)
             let values = ["firstName":self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]
             userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil{

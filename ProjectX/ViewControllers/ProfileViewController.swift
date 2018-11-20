@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profileView: UIView!
@@ -19,6 +20,23 @@ class ProfileViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setupUI()
+        checkIfUserIsLoggedIn()
+    }
+    
+    //See if user is logged in
+    func checkIfUserIsLoggedIn(){
+        if Auth.auth().currentUser?.uid == nil{
+            handleLogout()
+        } else {
+            if let uid = Auth.auth().currentUser?.uid{
+                
+                Database.database().reference(fromURL: "https://projectx-ed29a.firebaseio.com/").child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dictionary = snapshot.value as? [String: AnyObject]{
+                        self.userName.text = dictionary["firstName"] as? String
+                    }
+                })
+            }
+        }
     }
     
     func setupUI(){
@@ -45,5 +63,14 @@ class ProfileViewController: UIViewController {
     */
 
     @IBAction func logout(_ sender: Any) {
+        handleLogout()
+    }
+    
+    func handleLogout(){
+        do{
+            try Auth.auth().signOut()
+        } catch let error{
+            print(error.localizedDescription)
+        }
     }
 }
