@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CxF-pQ-Nti">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -375,9 +375,10 @@
                     </view>
                     <connections>
                         <outlet property="offerClassTableView" destination="ulN-kV-TgB" id="q8d-D2-Fa0"/>
-                        <segue destination="l7V-Df-FIR" kind="presentation" identifier="SelectCategory" modalTransitionStyle="coverVertical" id="MR2-mZ-3CE"/>
+                        <segue destination="l7V-Df-FIR" kind="presentation" identifier="SelectCategory" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="MR2-mZ-3CE"/>
                         <segue destination="v5n-aY-AKs" kind="presentation" identifier="SelectSubject" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="xCh-q2-qDD"/>
                         <segue destination="f0g-Wp-fEg" kind="presentation" identifier="SelectDescription" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="JHo-Jf-434"/>
+                        <segue destination="pUD-EX-EMd" kind="presentation" identifier="SelectHourlyPay" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="5SH-dV-k7p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odU-fH-rxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -893,6 +894,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1v-bV-1zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4844" y="-896"/>
+        </scene>
+        <!--Select Hourly Pay View Controller-->
+        <scene sceneID="R6b-SC-RV3">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="pUD-EX-EMd" customClass="SelectHourlyPayViewController" customModule="ProjectX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SS8-eA-Ijs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mix-eK-Pzz">
+                                <rect key="frame" x="65" y="234" width="244" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdX-Tt-xeI">
+                                        <rect key="frame" x="0.0" y="0.0" width="244" height="148"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="pUD-EX-EMd" id="Vrd-ys-0nY"/>
+                                            <outlet property="delegate" destination="pUD-EX-EMd" id="BhO-DU-I3e"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPY-xH-lJl">
+                                        <rect key="frame" x="130" y="156" width="114" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="pUD-EX-EMd" eventType="touchUpInside" id="hrh-am-m8g"/>
+                                            <action selector="selectButton:" destination="pUD-EX-EMd" eventType="touchUpInside" id="RsW-2t-FFD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BI6-k2-HeO">
+                                        <rect key="frame" x="0.0" y="156" width="130" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Select">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectButton:" destination="pUD-EX-EMd" eventType="touchUpInside" id="tc4-kN-2xf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.883112059" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zYv-gx-pHw"/>
+                    </view>
+                    <connections>
+                        <outlet property="popupView" destination="mix-eK-Pzz" id="Sga-Kj-Daw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgq-KX-OPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5554" y="-896"/>
         </scene>
     </scenes>
     <resources>

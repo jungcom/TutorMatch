@@ -15,10 +15,11 @@ class SelectSubjectViewController: UIViewController {
     @IBOutlet weak var subjectTextField: UITextField!
     
     @IBAction func selectButton(_ sender: Any) {
-        subject = subjectTextField.text
         dismiss(animated: true, completion: nil)
         let vc = presentingViewController as! OfferClassViewController
-        if let subject = subject{
+        if subjectTextField.text?.isEmpty ?? true{
+            vc.subject = nil
+        } else if let subject = subjectTextField.text{
             vc.subject = subject
         }
         vc.offerClassTableView.reloadData()

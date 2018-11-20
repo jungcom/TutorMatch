@@ -15,7 +15,7 @@ class OfferClassViewController: UIViewController {
     var category:Category?
     var subject:String?
     var subjectDescription:String?
-    var hourlyPay:Int?
+    var hourlyPay:String?
     
     var titles = ["Category","Subject","Description","Hourly Pay"]
     
@@ -77,16 +77,37 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
             if let category = category{
                 cell.selectedLabel.text = category.rawValue
                 cell.selectedLabel.textColor = Constants.green
+            } else {
+                cell.selectedLabel.text = "Add"
+                cell.selectedLabel.textColor = Constants.yellow
             }
         case 1:
             if let subject = subject{
                 cell.selectedLabel.text = subject
                 cell.selectedLabel.textColor = Constants.green
+            } else {
+                cell.selectedLabel.text = "Add"
+                cell.selectedLabel.textColor = Constants.yellow
             }
         case 2:
             if let subjectDescription = subjectDescription{
                 cell.selectedLabel.text = subjectDescription
                 cell.selectedLabel.textColor = Constants.green
+            } else {
+                cell.selectedLabel.text = "Add"
+                cell.selectedLabel.textColor = Constants.yellow
+            }
+        case 3:
+            if let hourlyPay = hourlyPay{
+                if hourlyPay == "Free"{
+                    cell.selectedLabel.text = hourlyPay
+                } else {
+                    cell.selectedLabel.text = "$\(hourlyPay)/hour"
+                }
+                cell.selectedLabel.textColor = Constants.green
+            } else {
+                cell.selectedLabel.text = "Add"
+                cell.selectedLabel.textColor = Constants.yellow
             }
         default: break
             
@@ -103,6 +124,8 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
             performSegue(withIdentifier: "SelectSubject", sender: nil)
         case 2:
             performSegue(withIdentifier: "SelectDescription", sender: nil)
+        case 3:
+            performSegue(withIdentifier: "SelectHourlyPay", sender: nil)
         default:
             break
         }

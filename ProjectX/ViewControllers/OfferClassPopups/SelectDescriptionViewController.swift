@@ -15,13 +15,14 @@ class SelectDescriptionViewController: UIViewController {
     @IBOutlet weak var subjectTextField: UITextField!
     
     @IBAction func selectButton(_ sender: Any) {
-        subjectDescription = subjectTextField.text
         dismiss(animated: true, completion: nil)
         let vc = presentingViewController as! OfferClassViewController
-        if let subjectDescription = subjectDescription{
+        if subjectTextField.text?.isEmpty ?? true{
+            vc.subjectDescription = nil
+        } else if let subjectDescription = subjectTextField.text{
             vc.subjectDescription = subjectDescription
         }
-        vc.offerClassTableView.reloadData()
+        vc.subjectDescription = subjectDescription
     }
     
     override func viewDidLoad() {
