@@ -46,6 +46,9 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row == 0{
+            return ""
+        }
         return titles[row].rawValue
     }
     

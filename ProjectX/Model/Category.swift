@@ -12,7 +12,7 @@ enum Category :String {
     case Academics
     case Arts
     case Languages
-    case FitnessAndSports
+    case FitnessAndSports = "Fitness And Sports"
     case Tech
     case Experience
 }
