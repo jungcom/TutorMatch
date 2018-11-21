@@ -6,7 +6,6 @@
 //  Copyright © 2018 projectX. All rights reserved.
 //
 
-import Foundation
 
 enum Category :String {
     case Academics

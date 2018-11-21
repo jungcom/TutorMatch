@@ -22,7 +22,7 @@ class SelectDescriptionViewController: UIViewController {
         } else if let subjectDescription = subjectTextField.text{
             vc.subjectDescription = subjectDescription
         }
-        vc.subjectDescription = subjectDescription
+        vc.offerClassTableView.reloadData()
     }
     
     override func viewDidLoad() {

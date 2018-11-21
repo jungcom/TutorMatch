@@ -2,17 +2,17 @@
 //  Post.swift
 //  ProjectX
 //
-//  Created by Anthony Lee on 11/7/18.
+//  Created by Anthony Lee on 11/21/18.
 //  Copyright © 2018 projectX. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class Post{
-    var userID : String?
-    var hourlyPay : String?
+class Post: NSObject{
     var category : String?
+    var hourlyPay : String?
     var subject: String?
-    var description : String?
-    
+    var subjectDescription : String?
+    var timestamp : NSNumber?
+    var user : String?
 }

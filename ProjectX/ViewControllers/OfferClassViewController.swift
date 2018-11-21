@@ -34,21 +34,24 @@ class OfferClassViewController: UIViewController {
     }
     
     @IBAction func postClass(_ sender: Any) {
-        //Check Current User
+        // MARK: TODO - Check Current User, if doesnt exist, logout
         guard let uid = Auth.auth().currentUser?.uid else {
             print ("No UID")
             return
         }
-        let ref = Database.database().reference(fromURL: Constants.databaseURL)
-        let postRef = ref.child("posts")
-        let values = ["userID": uid, "category" : category?.rawValue, "subject" : subject]
-        postRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
-            if err != nil{
-                print(err?.localizedDescription)
+        
+        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("posts")
+        let postRef = ref.childByAutoId()
+        let timestamp = Int(NSDate().timeIntervalSince1970)
+        let values = ["user":uid ,"category" : category?.rawValue, "subject" : subject, "subjectDescription" : subjectDescription, "hourlyPay" : hourlyPay, "timestamp": timestamp] as [String : Any]
+        postRef.setValue(values) { (error, ref) in
+            if error != nil{
+                print(error?.localizedDescription)
                 return
             }
             print("Saved user data to DB")
-        })
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     /*
@@ -71,6 +74,7 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OfferClassTableViewCell", for: indexPath) as! OfferClassTableViewCell
         cell.titleLabel.text = titles[indexPath.row]
+        cell.selectionStyle = .default
         
         switch indexPath.row {
         case 0:

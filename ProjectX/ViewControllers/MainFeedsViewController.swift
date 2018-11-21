@@ -21,12 +21,33 @@ class MainFeedsViewController: UIViewController {
     
     //Mock Data
     var profilePic = ["mockPerson","profile1","profile2","profile3"]
-    var course = ["Acoustic Guitar","Baking","IOS Development","Spray Painting"]
-    var price = ["$10/hour","Free","$20/hour","Free"]
-    var names = ["Bob","Jack","Chris","Mary",]
+    var subjects :[String] = []
+    var prices :[String] = []
+    var usernames :[String] = []
+    var subjectDescriptions : [String] = []
+    var posts: [Post] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //
+        retrievePosts()
+    }
+    
+    func retrievePosts(){
+        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("posts")
+        ref.observe(.childAdded, with: { (snapshot) in
+            print(snapshot)
+            if let dictionary = snapshot.value as? [String: AnyObject]{
+                let post = Post()
+                post.setValuesForKeys(dictionary)
+                //print(post.timestamp)
+            }
+        }, withCancel: nil)
     }
     
 
@@ -56,9 +77,6 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
         if(collectionView == self.tutorCollectionView){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TutorCollectionViewCell", for: indexPath) as! TutorCollectionViewCell
             cell.profilePic.image = UIImage(named: profilePic[indexPath.row])
-            cell.courseName.text = course[indexPath.row]
-            cell.distance.text = price[indexPath.row]
-            cell.tutorName.text = names[indexPath.row]
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
