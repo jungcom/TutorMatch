@@ -45,7 +45,12 @@ class MainFeedsViewController: UIViewController {
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let post = Post()
                 post.setValuesForKeys(dictionary)
-                //print(post.timestamp)
+                self.posts.append(post)
+                
+                //reload tableview
+                DispatchQueue.main.async {
+                    self.tutorCollectionView.reloadData()
+                }
             }
         }, withCancel: nil)
     }
@@ -67,7 +72,7 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == self.tutorCollectionView){
-            return 4
+            return posts.count
         } else {
             return category.count
         }
@@ -76,8 +81,10 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(collectionView == self.tutorCollectionView){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TutorCollectionViewCell", for: indexPath) as! TutorCollectionViewCell
-            cell.profilePic.image = UIImage(named: profilePic[indexPath.row])
+            //cell.profilePic.image = UIImage(named: profilePic[indexPath.row])
+            cell.post = posts[indexPath.row]
             return cell
+            
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             cell.categoryLabel.text = category[indexPath.row]

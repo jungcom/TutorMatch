@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objcMembers
 class Post: NSObject{
     var category : String?
     var hourlyPay : String?

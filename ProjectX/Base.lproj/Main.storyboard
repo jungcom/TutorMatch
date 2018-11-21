@@ -574,10 +574,10 @@
                                         </view>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="courseDescription" destination="37I-LF-c3e" id="1j6-sz-f9R"/>
-                                            <outlet property="courseName" destination="hGf-Yg-rA8" id="Cc1-fp-nas"/>
-                                            <outlet property="distance" destination="HQf-hu-MkD" id="wKs-IN-wzm"/>
+                                            <outlet property="hourlyPay" destination="HQf-hu-MkD" id="K3U-Qn-iby"/>
                                             <outlet property="profilePic" destination="kHt-ms-7bn" id="uid-Jb-VYs"/>
+                                            <outlet property="subject" destination="hGf-Yg-rA8" id="aYk-eS-tYc"/>
+                                            <outlet property="subjectDescription" destination="37I-LF-c3e" id="IEh-fJ-Z8b"/>
                                             <outlet property="tutorName" destination="RwB-WV-qUj" id="Teh-UD-wh8"/>
                                         </connections>
                                     </collectionViewCell>

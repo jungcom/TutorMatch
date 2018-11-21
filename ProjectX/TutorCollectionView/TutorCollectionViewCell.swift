@@ -10,11 +10,26 @@ import UIKit
 
 class TutorCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var courseDescription: UITextView!
-    @IBOutlet weak var courseName: UITextView!
-    @IBOutlet weak var distance: UILabel!
+    @IBOutlet weak var subjectDescription: UITextView!
+    @IBOutlet weak var subject: UITextView!
+    @IBOutlet weak var hourlyPay: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var tutorName: UILabel!
+    
+    var post:Post!{
+        didSet{
+            self.subjectDescription.text = post.subjectDescription
+            self.subject.text = post.subject
+            if post.hourlyPay != "Free"{
+                self.hourlyPay.text = "$\(post.hourlyPay!)"
+            } else {
+                self.hourlyPay.text = "Free"
+            }
+            
+            self.tutorName.text = post.user
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
