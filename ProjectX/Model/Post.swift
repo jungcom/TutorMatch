@@ -16,4 +16,6 @@ class Post: NSObject{
     var subjectDescription : String?
     var timestamp : NSNumber?
     var user : String?
+    var userFirstName : String?
+    var userLastName : String?
 }

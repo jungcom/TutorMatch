@@ -120,24 +120,22 @@ class SignUpViewController: UIViewController {
             
             // if successful add user
             let databaseURL = Constants.databaseURL
-            guard let uid = Auth.auth().currentUser?.uid else {
-                print ("No UID")
-                return
-            }
             
             //Add user to the Firebase database
-            self.ref = Database.database().reference(fromURL: databaseURL)
-            let userRef = self.ref.child("users").child(uid)
-            let values = ["firstName":self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]
-            userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil{
-                    print(err?.localizedDescription)
-                    return
-                }
-                print("Saved user data to DB")
-            })
-            
-            self.signInTo()
+            if let uid = Auth.auth().currentUser?.uid{
+                self.ref = Database.database().reference(fromURL: databaseURL)
+                let userRef = self.ref.child("users").child(uid)
+                let values = ["firstName": self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]
+                userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                    if err != nil{
+                        print(err?.localizedDescription)
+                        return
+                    }
+                    print("Saved user data to DB")
+                })
+                
+                self.signInTo()
+            }
         })
     }
     

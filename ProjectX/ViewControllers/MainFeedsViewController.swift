@@ -84,6 +84,7 @@ class MainFeedsViewController: UIViewController {
         searchController.searchBar.keyboardType = UIKeyboardType.asciiCapable
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
+        
         // Make this class the delegate and present the search
         present(searchController, animated: true, completion: nil)
     }
@@ -102,11 +103,12 @@ class MainFeedsViewController: UIViewController {
 
 extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDataSource,UISearchResultsUpdating {
     
-    
+    //Search Function
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
             filteredPosts = searchText.isEmpty ? posts : posts.filter({
                 $0.subject?.lowercased().contains(searchText.lowercased()) ?? true
+                || $0.subjectDescription?.lowercased().contains(searchText.lowercased()) ?? true
             })
             tutorCollectionView.reloadData()
         }

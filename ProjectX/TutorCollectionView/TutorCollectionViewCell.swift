@@ -27,7 +27,9 @@ class TutorCollectionViewCell: UICollectionViewCell {
                     self.hourlyPay.text = "Free"
                 }
             }
-            self.tutorName.text = post.user
+            if let fn = post.userFirstName, let ln = post.userLastName{
+                self.tutorName.text = "\(fn) \(ln)"
+            }
         }
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objcMembers
 class User:NSObject{
     var firstName: String?
     var lastName: String?
