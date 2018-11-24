@@ -17,25 +17,45 @@ class MainFeedsViewController: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var tutorCollectionView: UICollectionView!
     
+    var searchController: UISearchController!
+    
     var category = ["All","Music","Sports","Academic","Cooking","Art"]
     
     //Mock Data
     var profilePic = ["mockPerson","profile1","profile2","profile3"]
-    var subjects :[String] = []
-    var prices :[String] = []
-    var usernames :[String] = []
-    var subjectDescriptions : [String] = []
+//    var subjects :[String] = []
+//    var prices :[String] = []
+//    var usernames :[String] = []
+//    var subjectDescriptions : [String] = []
     var posts: [Post] = []
+    
+    //filter
+    var filteredPosts :[Post] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //Set Search delegate
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        
+        //Retain Search results
+        posts = []
+        retrievePosts()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //
-        retrievePosts()
+//        //empty posts
+//        posts = []
+//        retrievePosts()
+//
+//        //Set Search delegate
+//        searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchResultsUpdater = self
     }
     
     func retrievePosts(){
@@ -46,16 +66,28 @@ class MainFeedsViewController: UIViewController {
                 let post = Post()
                 post.setValuesForKeys(dictionary)
                 self.posts.append(post)
+                self.filteredPosts.append(post)
                 
-                //reload tableview
+                //reload Collectionview
                 DispatchQueue.main.async {
                     self.tutorCollectionView.reloadData()
                 }
             }
         }, withCancel: nil)
+        
     }
     
-
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        
+        // Set any properties (in this case, don't hide the nav bar and don't show the emoji keyboard option)
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.keyboardType = UIKeyboardType.asciiCapable
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        // Make this class the delegate and present the search
+        present(searchController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -68,11 +100,21 @@ class MainFeedsViewController: UIViewController {
 
 }
 
-extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDataSource{
+extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDataSource,UISearchResultsUpdating {
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filteredPosts = searchText.isEmpty ? posts : posts.filter({
+                $0.subject?.lowercased().contains(searchText.lowercased()) ?? true
+            })
+            tutorCollectionView.reloadData()
+        }
+     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == self.tutorCollectionView){
-            return posts.count
+            return filteredPosts.count
         } else {
             return category.count
         }
@@ -82,7 +124,7 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
         if(collectionView == self.tutorCollectionView){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TutorCollectionViewCell", for: indexPath) as! TutorCollectionViewCell
             //cell.profilePic.image = UIImage(named: profilePic[indexPath.row])
-            cell.post = posts[indexPath.row]
+            cell.post = filteredPosts[indexPath.row]
             return cell
             
         } else {

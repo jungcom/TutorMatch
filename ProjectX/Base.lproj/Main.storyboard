@@ -657,7 +657,11 @@
                                 <segue destination="CxF-pQ-Nti" kind="presentation" id="8d8-U7-70B"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="o6m-AK-AwH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="RpG-8a-jPx">
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="390-3t-e0t" id="OTI-57-hKz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryCollectionView" destination="1ma-6n-BNY" id="kfl-AM-00a"/>

@@ -20,12 +20,13 @@ class TutorCollectionViewCell: UICollectionViewCell {
         didSet{
             self.subjectDescription.text = post.subjectDescription
             self.subject.text = post.subject
-            if post.hourlyPay != "Free"{
-                self.hourlyPay.text = "$\(post.hourlyPay!)"
-            } else {
-                self.hourlyPay.text = "Free"
+            if let pay = post.hourlyPay{
+                if pay != "Free"{
+                    self.hourlyPay.text = "$\(pay)"
+                } else {
+                    self.hourlyPay.text = "Free"
+                }
             }
-            
             self.tutorName.text = post.user
         }
     }
