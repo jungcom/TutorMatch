@@ -58,7 +58,10 @@ class OfferClassViewController: UIViewController {
         //If fields are empty, cannot post
         // MARK: TODO - Alarm controller if not all set
         if allSet.contains(false){
-            print("Cant post")
+            let alert = UIAlertController(title: "Please fill in all fields", message: "", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            present(alert, animated: true)
             return
         }
         

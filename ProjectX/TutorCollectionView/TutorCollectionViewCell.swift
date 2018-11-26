@@ -22,7 +22,7 @@ class TutorCollectionViewCell: UICollectionViewCell {
             self.subject.text = post.subject
             if let pay = post.hourlyPay{
                 if pay != "Free"{
-                    self.hourlyPay.text = "$\(pay)"
+                    self.hourlyPay.text = "$\(pay)/hour"
                 } else {
                     self.hourlyPay.text = "Free"
                 }
