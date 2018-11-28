@@ -36,6 +36,9 @@ class SelectSubjectViewController: UIViewController {
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        subject = nil
+        let vc = presentingViewController as! OfferClassViewController
+        vc.offerClassTableView.reloadData()
     }
     
     /*

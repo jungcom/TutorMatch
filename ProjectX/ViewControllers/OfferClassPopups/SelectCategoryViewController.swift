@@ -22,8 +22,8 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        category = nil
         let vc = presentingViewController as! OfferClassViewController
-        vc.category = nil
         vc.offerClassTableView.reloadData()
     }
     

@@ -36,6 +36,9 @@ class SelectDescriptionViewController: UIViewController {
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        subjectDescription = nil
+        let vc = presentingViewController as! OfferClassViewController
+        vc.offerClassTableView.reloadData()
     }
     
     /*

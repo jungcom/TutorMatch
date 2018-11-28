@@ -22,6 +22,9 @@ class SelectHourlyPayViewController: UIViewController, UIPickerViewDelegate, UIP
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        hourlyPay = nil
+        let vc = presentingViewController as! OfferClassViewController
+        vc.offerClassTableView.reloadData()
     }
     
     @IBOutlet weak var popupView: UIView!
