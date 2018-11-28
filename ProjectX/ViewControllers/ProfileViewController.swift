@@ -42,6 +42,12 @@ class ProfileViewController: UIViewController {
     }
     
     func setupUI(){
+        //Profile View background
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "purple")
+//        backgroundImage.contentMode = .scaleAspectFill
+        self.profileView.backgroundColor = UIColor(patternImage: UIImage(named: "purple")!)
+        
         //logoutButton
         logoutButton.layer.cornerRadius = 5
         logoutButton.clipsToBounds = true

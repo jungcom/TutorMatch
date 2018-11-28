@@ -523,7 +523,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mMc-5n-8ku">
                                 <rect key="frame" x="0.0" y="115" width="375" height="503"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qhb-XZ-3DB" customClass="TutorFlowLayout" customModule="ProjectX" customModuleProvider="target">
                                     <size key="itemSize" width="356" height="190"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -978,6 +978,6 @@
         <image name="profile" width="22" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mlY-ln-k4s"/>
+        <segue reference="BsD-DR-5Gq"/>
     </inferredMetricsTieBreakers>
 </document>

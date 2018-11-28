@@ -139,13 +139,16 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(collectionView == self.categoryCollectionView){
             let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
-            cell.backgroundColor = UIColor.cyan
+            cell.backgroundColor = UIColor(red: 148/255, green: 55/255, blue: 255/255, alpha: 1)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if(collectionView == self.categoryCollectionView){
-            let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
+            guard var cell = collectionView.cellForItem(at: indexPath) else {
+                return
+            }
+            cell = cell as! CategoryCollectionViewCell
             cell.backgroundColor = UIColor.white
         }
     }

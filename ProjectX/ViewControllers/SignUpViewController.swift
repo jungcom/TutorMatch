@@ -35,6 +35,12 @@ class SignUpViewController: UIViewController {
     }
     
     func setupUI(){
+        //Set Background
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "purple")
+        backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         //Set Delegates
         emailTextField.delegate = self
         passwordTextField.delegate = self
