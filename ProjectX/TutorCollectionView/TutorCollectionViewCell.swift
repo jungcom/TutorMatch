@@ -36,7 +36,9 @@ class TutorCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        profilePic.layer.cornerRadius = 15
-        profilePic.clipsToBounds = true
+        if let profilePic = profilePic{
+            profilePic.layer.cornerRadius = 15
+            profilePic.clipsToBounds = true
+        }
     }
 }

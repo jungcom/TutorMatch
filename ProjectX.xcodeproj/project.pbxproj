@@ -25,6 +25,7 @@
 		4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B68621801F5100576C0C /* SignUpViewController.swift */; };
 		4E5F4C1B219399B80048E648 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C1A219399B80048E648 /* User.swift */; };
 		4E5F4C1D21939B090048E648 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C1C21939B090048E648 /* Category.swift */; };
+		4E6BA40521AE26FE00477D3B /* ProfileTutorFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */; };
 		4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */; };
 		4EAFEEB621860FE300D6C4F9 /* CategoryFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */; };
 		4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */; };
@@ -54,6 +55,7 @@
 		4E54B68621801F5100576C0C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4E5F4C1A219399B80048E648 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4E5F4C1C21939B090048E648 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTutorFlowLayout.swift; sourceTree = "<group>"; };
 		4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFlowLayout.swift; sourceTree = "<group>"; };
 		4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				4E46530521855E3B00B022E0 /* TutorFlowLayout.swift */,
+				4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */,
 				4E4653032185584300B022E0 /* TutorCollectionViewCell.swift */,
 			);
 			path = TutorCollectionView;
@@ -333,6 +336,7 @@
 				4E207AEA21A47D01007005A4 /* SelectHourlyPayViewController.swift in Sources */,
 				4E46530921860A6B00B022E0 /* ProfileViewController.swift in Sources */,
 				4E207AE221A1D2D1007005A4 /* SelectCategoryViewController.swift in Sources */,
+				4E6BA40521AE26FE00477D3B /* ProfileTutorFlowLayout.swift in Sources */,
 				4E207AEC21A5CA37007005A4 /* Post.swift in Sources */,
 				4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */,
 				4E5F4C1D21939B090048E648 /* Category.swift in Sources */,
