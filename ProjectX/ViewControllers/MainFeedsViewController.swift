@@ -19,7 +19,7 @@ class MainFeedsViewController: UIViewController {
     
     var searchController: UISearchController!
     
-    var category = ["All","Music","Sports","Academic","Cooking","Art"]
+    var category = ["All",Category.Academics.rawValue,"Sports","Tech","Art","Music"]
     
     //Mock Data
     var profilePic = ["mockPerson","profile1","profile2","profile3"]

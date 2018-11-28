@@ -80,6 +80,7 @@ class ProfileViewController: UIViewController {
         } catch let error{
             print(error.localizedDescription)
         }
+        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -22,6 +22,9 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        let vc = presentingViewController as! OfferClassViewController
+        vc.category = nil
+        vc.offerClassTableView.reloadData()
     }
     
     @IBOutlet weak var popupView: UIView!
@@ -30,7 +33,6 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
         dismiss(animated: true, completion: nil)
         let vc = presentingViewController as! OfferClassViewController
         vc.category = category
-        
         vc.offerClassTableView.reloadData()
     }
  
