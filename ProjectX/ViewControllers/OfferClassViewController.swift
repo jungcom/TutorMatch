@@ -56,7 +56,6 @@ class OfferClassViewController: UIViewController {
     
     @IBAction func postClass(_ sender: Any) {
         //If fields are empty, cannot post
-        // MARK: TODO - Alarm controller if not all set
         if allSet.contains(false){
             let alert = UIAlertController(title: "Please fill in all fields", message: "", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
@@ -71,10 +70,13 @@ class OfferClassViewController: UIViewController {
             return
         }
         
+        // MARK: Add post data
         let ref = Database.database().reference(fromURL: Constants.databaseURL).child("posts")
         let postRef = ref.childByAutoId()
         let timestamp = Int(NSDate().timeIntervalSince1970)
-        let values = ["user":uid , "userFirstName": userData?.firstName, "userLastName":userData?.lastName, "category" : category?.rawValue, "subject" : subject, "subjectDescription" : subjectDescription, "hourlyPay" : hourlyPay, "timestamp": timestamp] as [String : Any]
+        var values = ["user":uid , "userFirstName": userData?.firstName, "userLastName":userData?.lastName, "category" : category?.rawValue, "subject" : subject, "subjectDescription" : subjectDescription, "hourlyPay" : hourlyPay] as [String : Any]
+        values["timestamp"] = timestamp
+        values["booked"] = "No"
         postRef.setValue(values) { (error, ref) in
             if error != nil{
                 print(error?.localizedDescription)

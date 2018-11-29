@@ -22,14 +22,13 @@ class MainFeedsViewController: UIViewController {
     var category = ["All",Category.Academics.rawValue,"Sports","Tech","Art","Music"]
     
     //Mock Data
-    var profilePic = ["mockPerson","profile1","profile2","profile3"]
 //    var subjects :[String] = []
 //    var prices :[String] = []
 //    var usernames :[String] = []
 //    var subjectDescriptions : [String] = []
     var posts: [Post] = []
     
-    //filter
+    //Search filter
     var filteredPosts :[Post] = []
     
     override func viewDidLoad() {
@@ -46,21 +45,11 @@ class MainFeedsViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        //empty posts
-//        posts = []
-//        retrievePosts()
-//
-//        //Set Search delegate
-//        searchController = UISearchController(searchResultsController: nil)
-//        searchController.searchResultsUpdater = self
-    }
-    
     func retrievePosts(){
         let ref = Database.database().reference(fromURL: Constants.databaseURL).child("posts")
-        ref.observe(.childAdded, with: { (snapshot) in
+        // add filter for only not booked classes
+        let query = ref.queryOrdered(byChild: "booked").queryEqual(toValue: "No")
+        query.observe(.childAdded, with: { (snapshot) in
             print(snapshot)
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let post = Post()

@@ -666,11 +666,27 @@
                     <connections>
                         <outlet property="categoryCollectionView" destination="1ma-6n-BNY" id="kfl-AM-00a"/>
                         <outlet property="tutorCollectionView" destination="mMc-5n-8ku" id="Vz6-TC-EMG"/>
+                        <segue destination="H5y-eW-O27" kind="show" id="dVI-WY-cOQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEz-UB-f3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3973.5999999999999" y="65.217391304347828"/>
+            <point key="canvasLocation" x="3710" y="66"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QNc-Qu-Hqx">
+            <objects>
+                <viewController id="H5y-eW-O27" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="opU-6d-Ixi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iZX-Dt-NE0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C2j-6m-zsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4814" y="66"/>
         </scene>
         <!--Profile-->
         <scene sceneID="A1H-cA-XUN">
@@ -974,7 +990,7 @@
     </scenes>
     <resources>
         <image name="browsebutton" width="20" height="16"/>
-        <image name="mockPerson" width="150" height="150"/>
+        <image name="mockPerson" width="300" height="300"/>
         <image name="profile" width="22" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>

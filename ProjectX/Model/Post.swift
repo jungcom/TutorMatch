@@ -18,4 +18,5 @@ class Post: NSObject{
     var user : String?
     var userFirstName : String?
     var userLastName : String?
+    var booked : String?
 }
