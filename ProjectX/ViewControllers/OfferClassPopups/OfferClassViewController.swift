@@ -77,6 +77,7 @@ class OfferClassViewController: UIViewController {
         var values = ["user":uid , "userFirstName": userData?.firstName, "userLastName":userData?.lastName, "category" : category?.rawValue, "subject" : subject, "subjectDescription" : subjectDescription, "hourlyPay" : hourlyPay] as [String : Any]
         values["timestamp"] = timestamp
         values["booked"] = "No"
+        values["uid"] = postRef.key
         postRef.setValue(values) { (error, ref) in
             if error != nil{
                 print(error?.localizedDescription)

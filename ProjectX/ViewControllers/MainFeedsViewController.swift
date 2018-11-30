@@ -31,26 +31,44 @@ class MainFeedsViewController: UIViewController {
     //Search filter
     var filteredPosts :[Post] = []
     
+    //refreshControl
+    var refreshControl : UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("viewdidload for main")
         
         //Set Search delegate
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         
-        //Retain Search results
-        posts = []
-        retrievePosts()
-        
+        //Pull to refresh
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(retrievePosts), for: .valueChanged)
+        tutorCollectionView.addSubview(refreshControl)
     }
     
-    func retrievePosts(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewwillappear for main")
+        
+        //Retain Search results
+        retrievePosts()
+    }
+    
+    @objc func retrievePosts(){
+        posts = []
+        filteredPosts = []
         let ref = Database.database().reference(fromURL: Constants.databaseURL).child("posts")
+        
         // add filter for only not booked classes
         let query = ref.queryOrdered(byChild: "booked").queryEqual(toValue: "No")
+        
+        //get the posted data
         query.observe(.childAdded, with: { (snapshot) in
             print(snapshot)
+            print(snapshot.key)
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let post = Post()
                 post.setValuesForKeys(dictionary)
@@ -60,9 +78,11 @@ class MainFeedsViewController: UIViewController {
                 //reload Collectionview
                 DispatchQueue.main.async {
                     self.tutorCollectionView.reloadData()
+                    self.refreshControl.endRefreshing()
                 }
             }
         }, withCancel: nil)
+        
         
     }
     
@@ -78,7 +98,29 @@ class MainFeedsViewController: UIViewController {
         present(searchController, animated: true, completion: nil)
     }
     
-    /*
+    //Change the booked status
+    func changeBookStatus(_ post:Post){
+        if let userID = Auth.auth().currentUser?.uid{
+            if let uid = post.uid{
+                let ref = Database.database().reference(fromURL: Constants.databaseURL).child("posts").child(uid)
+                let value = ["booked" : userID]
+                ref.updateChildValues(value) { (error, reference) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        return
+                    }
+                    
+                    print("Successfully updated post's booked status to database.")
+                    DispatchQueue.main.async {
+                        self.tutorCollectionView.reloadData()
+                    }
+                    // go to message view controller
+                    print("msgview")
+                }
+            }
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -86,7 +128,7 @@ class MainFeedsViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
 
@@ -125,10 +167,24 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
         }
     }
     
+    //When cell is selected
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //change color
         if(collectionView == self.categoryCollectionView){
             let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
             cell.backgroundColor = UIColor(red: 148/255, green: 55/255, blue: 255/255, alpha: 1)
+        } else {
+            //create an alertview saying whether you actually want to book
+            let alert = UIAlertController(title: "Book Class", message: "Are you sure you want to book this class?", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Yes", style: .default){ (action) in
+                //MARK: TODO - move to message chat segue + change the post's status to booked
+                print("hi")
+                self.changeBookStatus(self.filteredPosts[indexPath.row])
+            }
+            let confirm = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            alert.addAction(confirm)
+            present(alert, animated: true)
         }
     }
     
@@ -141,4 +197,5 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
             cell.backgroundColor = UIColor.white
         }
     }
+    
 }

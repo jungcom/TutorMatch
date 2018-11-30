@@ -89,6 +89,7 @@
 		4E207AE021A1D2A5007005A4 /* OfferClassPopups */ = {
 			isa = PBXGroup;
 			children = (
+				4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */,
 				4E207AE121A1D2D1007005A4 /* SelectCategoryViewController.swift */,
 				4E207AE521A46C4C007005A4 /* SelectSubjectViewController.swift */,
 				4E207AE721A47B2A007005A4 /* SelectDescriptionViewController.swift */,
@@ -136,12 +137,10 @@
 		4E54B681217F98A700576C0C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4E207AE021A1D2A5007005A4 /* OfferClassPopups */,
-				4E54B671217F97AB00576C0C /* LoginViewController.swift */,
-				4E54B68621801F5100576C0C /* SignUpViewController.swift */,
 				4E54B684217F998F00576C0C /* MainFeedsViewController.swift */,
 				4E46530821860A6B00B022E0 /* ProfileViewController.swift */,
-				4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */,
+				4E67C35821B094C4002A08BC /* Authentication */,
+				4E207AE021A1D2A5007005A4 /* OfferClassPopups */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -155,6 +154,15 @@
 				4E207AEB21A5CA37007005A4 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4E67C35821B094C4002A08BC /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				4E54B671217F97AB00576C0C /* LoginViewController.swift */,
+				4E54B68621801F5100576C0C /* SignUpViewController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		4EAFEEB121860F8A00D6C4F9 /* TutorCollectionView */ = {

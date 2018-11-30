@@ -10,6 +10,7 @@ import UIKit
 
 @objcMembers
 class Post: NSObject{
+    var uid : String?
     var category : String?
     var hourlyPay : String?
     var subject: String?
