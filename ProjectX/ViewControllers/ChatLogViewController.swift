@@ -34,7 +34,7 @@ class ChatLogViewController: UICollectionViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         let containerView = UIView()
-        containerView.backgroundColor = UIColor.purple
+        containerView.backgroundColor = UIColor.white
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(containerView)
@@ -47,7 +47,7 @@ class ChatLogViewController: UICollectionViewController {
         
         //Send button
         let sendButton = UIButton(type: .system)
-        sendButton.setTitle("send", for: .normal)
+        sendButton.setTitle("Send", for: .normal)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(sendButton)
         //x,y,w,h
@@ -56,5 +56,26 @@ class ChatLogViewController: UICollectionViewController {
         sendButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         sendButton.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
         
+        //TextField
+        let inputTextField = UITextField()
+        inputTextField.placeholder = "Enter message..."
+        inputTextField.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(inputTextField)
+        //x,y,w,h
+        inputTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant:8).isActive = true
+        inputTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        inputTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+        inputTextField.rightAnchor.constraint(equalTo: sendButton.leftAnchor).isActive = true
+        
+        //Separator line
+        let separatorLine = UIView()
+        separatorLine.backgroundColor = UIColor.init(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
+        separatorLine.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(separatorLine)
+        //x,y,w,h
+        separatorLine.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        separatorLine.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        separatorLine.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        separatorLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 }
