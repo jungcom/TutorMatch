@@ -38,6 +38,20 @@ class MainFeedsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("viewdidload for main")
+        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewwillappear for main")
+        
+        //Retain Search results
+        retrievePosts()
+    }
+    
+    func setupUI(){
+        //Show tab bar
+        self.tabBarController?.tabBar.isHidden = false
         
         //Set Search delegate
         searchController = UISearchController(searchResultsController: nil)
@@ -47,14 +61,6 @@ class MainFeedsViewController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(retrievePosts), for: .valueChanged)
         tutorCollectionView.addSubview(refreshControl)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewwillappear for main")
-        
-        //Retain Search results
-        retrievePosts()
     }
     
     @objc func retrievePosts(){
@@ -178,8 +184,8 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
             let alert = UIAlertController(title: "Book Class", message: "Are you sure you want to book this class?", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Yes", style: .default){ (action) in
                 //MARK: TODO - move to message chat segue + change the post's status to booked
-                print("hi")
                 self.changeBookStatus(self.filteredPosts[indexPath.row])
+                self.showChatLog()
             }
             let confirm = UIAlertAction(title: "No", style: .cancel, handler: nil)
             alert.addAction(cancel)
@@ -198,4 +204,8 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
         }
     }
     
+    func showChatLog(){
+        let chatlogVC = ChatLogViewController(collectionViewLayout:UICollectionViewFlowLayout())
+        self.navigationController?.pushViewController(chatlogVC, animated: true)
+    }
 }
