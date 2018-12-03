@@ -47,11 +47,12 @@ class MainFeedsViewController: UIViewController {
         
         //Retain Search results
         retrievePosts()
+        
+        //Show tab bar
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func setupUI(){
-        //Show tab bar
-        self.tabBarController?.tabBar.isHidden = false
         
         //Set Search delegate
         searchController = UISearchController(searchResultsController: nil)
@@ -73,8 +74,6 @@ class MainFeedsViewController: UIViewController {
         
         //get the posted data
         query.observe(.childAdded, with: { (snapshot) in
-            print(snapshot)
-            print(snapshot.key)
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let post = Post()
                 post.setValuesForKeys(dictionary)
@@ -185,7 +184,7 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
             let cancel = UIAlertAction(title: "Yes", style: .default){ (action) in
                 //MARK: TODO - move to message chat segue + change the post's status to booked
                 self.changeBookStatus(self.filteredPosts[indexPath.row])
-                self.showChatLog()
+                self.showChatLog(self.filteredPosts[indexPath.row])
             }
             let confirm = UIAlertAction(title: "No", style: .cancel, handler: nil)
             alert.addAction(cancel)
@@ -204,8 +203,9 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
         }
     }
     
-    func showChatLog(){
+    func showChatLog(_ post:Post){
         let chatlogVC = ChatLogViewController(collectionViewLayout:UICollectionViewFlowLayout())
+        chatlogVC.post = post
         self.navigationController?.pushViewController(chatlogVC, animated: true)
     }
 }

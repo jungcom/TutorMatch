@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import Firebase
 
-class ChatLogViewController: UICollectionViewController {
+class ChatLogViewController: UICollectionViewController, UITextFieldDelegate {
+    
+    var post :Post?{
+        didSet{
+            navigationItem.title = post?.userFirstName
+        }
+    }
+    
+    lazy var inputTextField : UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter message..."
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
+        return textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.title = "Chat"
         collectionView.backgroundColor = UIColor.white
         
         setupUI()
@@ -49,7 +63,9 @@ class ChatLogViewController: UICollectionViewController {
         let sendButton = UIButton(type: .system)
         sendButton.setTitle("Send", for: .normal)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
+        sendButton.addTarget(self, action: #selector(handleSend), for: .touchUpInside)
         containerView.addSubview(sendButton)
+        
         //x,y,w,h
         sendButton.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         sendButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
@@ -57,9 +73,6 @@ class ChatLogViewController: UICollectionViewController {
         sendButton.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
         
         //TextField
-        let inputTextField = UITextField()
-        inputTextField.placeholder = "Enter message..."
-        inputTextField.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(inputTextField)
         //x,y,w,h
         inputTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant:8).isActive = true
@@ -77,5 +90,21 @@ class ChatLogViewController: UICollectionViewController {
         separatorLine.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         separatorLine.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         separatorLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    }
+    
+    @objc func handleSend(){
+        let ref = Database.database(url: Constants.databaseURL).reference().child("Messages")
+        let childRef = ref.childByAutoId()
+        let toId = self.post?.user
+        let fromId = Auth.auth().currentUser?.uid
+        let timestamp = Int(NSDate().timeIntervalSince1970)
+        let values = ["text": inputTextField.text!, "toId": toId!, "fromId": fromId!, "timestamp":timestamp] as [String : Any]
+        childRef.updateChildValues(values)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        handleSend()
+        return true
     }
 }

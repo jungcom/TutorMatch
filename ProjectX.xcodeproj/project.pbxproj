@@ -23,6 +23,7 @@
 		4E54B67A217F97AD00576C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E54B678217F97AD00576C0C /* LaunchScreen.storyboard */; };
 		4E54B685217F998F00576C0C /* MainFeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B684217F998F00576C0C /* MainFeedsViewController.swift */; };
 		4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E54B68621801F5100576C0C /* SignUpViewController.swift */; };
+		4E563A2921B5A5C200ABDCF5 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E563A2821B5A5C200ABDCF5 /* Messages.swift */; };
 		4E5F4C1B219399B80048E648 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C1A219399B80048E648 /* User.swift */; };
 		4E5F4C1D21939B090048E648 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C1C21939B090048E648 /* Category.swift */; };
 		4E6BA40521AE26FE00477D3B /* ProfileTutorFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */; };
@@ -54,6 +55,7 @@
 		4E54B67B217F97AD00576C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E54B684217F998F00576C0C /* MainFeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedsViewController.swift; sourceTree = "<group>"; };
 		4E54B68621801F5100576C0C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4E563A2821B5A5C200ABDCF5 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		4E5F4C1A219399B80048E648 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4E5F4C1C21939B090048E648 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTutorFlowLayout.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				4E5F4C1C21939B090048E648 /* Category.swift */,
 				4E207AE321A46840007005A4 /* Constants.swift */,
 				4E207AEB21A5CA37007005A4 /* Post.swift */,
+				4E563A2821B5A5C200ABDCF5 /* Messages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				4E207AEA21A47D01007005A4 /* SelectHourlyPayViewController.swift in Sources */,
 				4E46530921860A6B00B022E0 /* ProfileViewController.swift in Sources */,
 				4E207AE221A1D2D1007005A4 /* SelectCategoryViewController.swift in Sources */,
+				4E563A2921B5A5C200ABDCF5 /* Messages.swift in Sources */,
 				4E6BA40521AE26FE00477D3B /* ProfileTutorFlowLayout.swift in Sources */,
 				4E207AEC21A5CA37007005A4 /* Post.swift in Sources */,
 				4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */,
