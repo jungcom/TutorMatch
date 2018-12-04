@@ -120,6 +120,15 @@ class MessagesViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showChatLog(<#T##post: Post##Post#>)
+    }
+    
+    func showChatLog(_ post:Post){
+        let chatlogVC = ChatLogViewController(collectionViewLayout:UICollectionViewFlowLayout())
+        chatlogVC.post = post
+        self.navigationController?.pushViewController(chatlogVC, animated: true)
+    }
 }
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
