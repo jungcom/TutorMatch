@@ -95,12 +95,28 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate {
     @objc func handleSend(){
         let ref = Database.database(url: Constants.databaseURL).reference().child("Messages")
         let childRef = ref.childByAutoId()
-        let toId = self.post?.user
-        let fromId = Auth.auth().currentUser?.uid
-        let timestamp = Int(NSDate().timeIntervalSince1970)
-        let values = ["text": inputTextField.text!, "toId": toId!, "fromId": fromId!, "timestamp":timestamp] as [String : Any]
-        childRef.updateChildValues(values)
         
+        //message values
+        let toId = self.post!.user!
+        let fromId = Auth.auth().currentUser!.uid
+        let timestamp = Int(NSDate().timeIntervalSince1970)
+        let values = ["text": inputTextField.text!, "toId": toId, "fromId": fromId, "timestamp":timestamp] as [String : Any]
+        
+        childRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if error != nil{
+                print(error!)
+                return
+            }
+            
+            guard let messageId = childRef.key else { return }
+            
+            let userMessagesRef = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(fromId).child(messageId)
+            userMessagesRef.setValue(1)
+            
+            let recipientUserMessagesRef = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(toId).child(messageId)
+            recipientUserMessagesRef.setValue(1)
+            
+        })
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

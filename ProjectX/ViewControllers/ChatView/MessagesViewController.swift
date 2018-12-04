@@ -25,7 +25,8 @@ class MessagesViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        observeMessages()
+        //observeMessages()
+        observeUserMessages()
     }
     
 
@@ -38,6 +39,49 @@ class MessagesViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func observeUserMessages(){
+        
+        messages.removeAll()
+        messagesDictionary.removeAll()
+        tableView.reloadData()
+        
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(userId)
+        
+        ref.observe(.childAdded, with: { (snapshot) in
+            let messageId = snapshot.key
+            let messageRef = Database.database().reference(fromURL: Constants.databaseURL).child("Messages").child(messageId)
+            
+            messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String:AnyObject]{
+                    let message = Message()
+                    message.setValuesForKeys(dictionary)
+                    
+                    if let toId = message.toId{
+                        self.messagesDictionary[toId] = message
+                        self.messages = Array(self.messagesDictionary.values)
+                        
+                        //sort array in terms of time
+                        self.messages.sort(by: { (m1, m2) -> Bool in
+                            //descending time order
+                            return m1.timestamp?.intValue > m2.timestamp?.intValue
+                        })
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+                
+            }, withCancel: nil)
+        }, withCancel: nil)
+    }
+    
     func observeMessages(){
         let ref = Database.database().reference(fromURL: Constants.databaseURL).child("Messages")
         ref.observe(.childAdded, with: { (snapshot) in
@@ -65,7 +109,7 @@ class MessagesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return messagesDictionary.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

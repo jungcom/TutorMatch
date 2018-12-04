@@ -10,18 +10,31 @@ import Firebase
 
 class UserCell: UITableViewCell {
     
+    fileprivate func setupName() {
+        let chatPartnerId: String?
+        
+        if message?.fromId == Auth.auth().currentUser?.uid{
+            chatPartnerId = message?.toId
+        } else{
+            chatPartnerId = message?.fromId
+        }
+        
+        //Get User Info
+        if let chatPartnerId = chatPartnerId {
+            let ref = Database.database().reference(fromURL: Constants.databaseURL).child("users").child(chatPartnerId)
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String:AnyObject]{
+                    self.textLabel?.text = dictionary["firstName"] as? String
+                }
+            }, withCancel: nil)
+            
+        }
+    }
+    
     var message: Message?{
         didSet{
-            //Get User Info
-            if let toId = message?.toId {
-                let ref = Database.database().reference(fromURL: Constants.databaseURL).child("users").child(toId)
-                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let dictionary = snapshot.value as? [String:AnyObject]{
-                        self.textLabel?.text = dictionary["firstName"] as? String
-                    }
-                }, withCancel: nil)
-                
-            }
+            setupName()
+            
             //set text
             detailTextLabel?.text = message?.text
             
@@ -35,6 +48,8 @@ class UserCell: UITableViewCell {
         }
     }
     
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -45,7 +60,6 @@ class UserCell: UITableViewCell {
     
     let timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "HH:MM:SS"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .right
