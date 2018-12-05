@@ -20,7 +20,7 @@ class UserCell: UITableViewCell {
         }
         
         //Get User Info
-        if let chatPartnerId = chatPartnerId {
+        if let chatPartnerId = message?.chatPartnerId() {
             let ref = Database.database().reference(fromURL: Constants.databaseURL).child("users").child(chatPartnerId)
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String:AnyObject]{

@@ -12,6 +12,7 @@ import UIKit
 struct Constants{
     static let green = UIColor.init(red: 86/255, green: 212/255, blue: 55/255, alpha: 1)
     static let yellow = UIColor.init(red: 232/255, green: 181/255, blue: 32/255, alpha: 1)
+    static let purple = UIColor.init(red: 83/255, green: 27/255, blue: 147/255, alpha: 1)
     static let databaseURL = "https://projectx-ed29a.firebaseio.com/"
     static var hourlyPay : [String] {
         let a : [Int] = Array(5...50)

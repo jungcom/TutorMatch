@@ -27,6 +27,9 @@ class MessagesViewController: UITableViewController {
         super.viewWillAppear(animated)
         //observeMessages()
         observeUserMessages()
+        
+        //Show tab bar
+        self.tabBarController?.tabBar.isHidden = false
     }
     
 
@@ -62,8 +65,8 @@ class MessagesViewController: UITableViewController {
                     let message = Message()
                     message.setValuesForKeys(dictionary)
                     
-                    if let toId = message.toId{
-                        self.messagesDictionary[toId] = message
+                    if let chatPartnerId = message.chatPartnerId(){
+                        self.messagesDictionary[chatPartnerId] = message
                         self.messages = Array(self.messagesDictionary.values)
                         
                         //sort array in terms of time
@@ -82,32 +85,6 @@ class MessagesViewController: UITableViewController {
         }, withCancel: nil)
     }
     
-    func observeMessages(){
-        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("Messages")
-        ref.observe(.childAdded, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String:AnyObject]{
-                let message = Message()
-                message.setValuesForKeys(dictionary)
-                
-                if let toId = message.toId{
-                    self.messagesDictionary[toId] = message
-                    self.messages = Array(self.messagesDictionary.values)
-                    
-                    //sort array in terms of time
-                    self.messages.sort(by: { (m1, m2) -> Bool in
-                        //descending time order
-                        return m1.timestamp?.intValue > m2.timestamp?.intValue
-                    })
-                }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }, withCancel: nil)
-        
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messagesDictionary.count
     }
@@ -121,12 +98,29 @@ class MessagesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showChatLog(<#T##post: Post##Post#>)
+        //showChatLog(Post)
+        let message = messages[indexPath.row]
+        
+        guard let chatPartnerId = message.chatPartnerId() else {
+            return
+        }
+        
+        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("users").child(chatPartnerId)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot)
+            guard let dictionary = snapshot.value as? [String:AnyObject] else {
+                return
+            }
+            let user = User()
+            user.uid = chatPartnerId
+            user.setValuesForKeys(dictionary)
+            self.showChatLog(user)
+        }, withCancel: nil)
     }
     
-    func showChatLog(_ post:Post){
+    func showChatLog(_ user:User){
         let chatlogVC = ChatLogViewController(collectionViewLayout:UICollectionViewFlowLayout())
-        chatlogVC.post = post
+        chatlogVC.user = user
         self.navigationController?.pushViewController(chatlogVC, animated: true)
     }
 }

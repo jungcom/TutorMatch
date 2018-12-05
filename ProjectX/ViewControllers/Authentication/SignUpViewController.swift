@@ -131,7 +131,8 @@ class SignUpViewController: UIViewController {
             if let uid = Auth.auth().currentUser?.uid{
                 self.ref = Database.database().reference(fromURL: databaseURL)
                 let userRef = self.ref.child("users").child(uid)
-                let values = ["firstName": self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]
+                var values = ["firstName": self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]
+                values["uid"] = uid
                 userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     if err != nil{
                         print(err?.localizedDescription)

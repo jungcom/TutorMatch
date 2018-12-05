@@ -9,13 +9,62 @@
 import UIKit
 import Firebase
 
-class ChatLogViewController: UICollectionViewController, UITextFieldDelegate {
+class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
+    
+    var messages = [Message]()
     
     var post :Post?{
         didSet{
             navigationItem.title = post?.userFirstName
+            toId = post?.user
+            
+            observeMessages()
         }
     }
+    
+    func observeMessages(){
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(uid)
+        
+        ref.observe(.childAdded, with: { (snapshot) in
+            
+            let msgId = snapshot.key
+            let msgRef = Database.database().reference(fromURL: Constants.databaseURL).child("Messages").child(msgId)
+            msgRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                //Each message
+                
+                guard let dictionary = snapshot.value as? [String : AnyObject] else {
+                    return
+                }
+                
+                let message = Message()
+                message.setValuesForKeys(dictionary)
+                
+                //messages on the right
+                if message.chatPartnerId() == self.user?.uid{
+                    self.messages.append(message)
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+                
+                
+            }, withCancel: nil)
+        }, withCancel: nil)
+    }
+    
+    var user : User?{
+        didSet{
+            toId = user?.uid
+            observeMessages()
+        }
+    }
+    
+    var toId : String?
+    
+    let cellId = "cellId"
     
     lazy var inputTextField : UITextField = {
         let textField = UITextField()
@@ -29,12 +78,51 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
+        collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = UIColor.white
+        collectionView.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         
         setupUI()
     }
     
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
+        cell.backgroundColor = UIColor.white
+        let message = messages[indexPath.item]
+        cell.textView.text = message.text
+        
+        //Modify cell width
+        if let txt = message.text{
+            cell.bubbleWidthAnchor?.constant = estimateFrameForText(txt).width + 32
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var height : CGFloat = 80
+        
+        //get estimated height
+        if let text = messages[indexPath.item].text {
+            height = estimateFrameForText(text).height + 20
+        }
+        
+        //estimated height
+        return CGSize(width: view.frame.width, height: height)
+    }
+    
+    private func estimateFrameForText(_ text:String) -> CGRect{
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: 16)]), context: nil)
+    }
 
+    
     /*
     // MARK: - Navigation
 
@@ -97,7 +185,7 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate {
         let childRef = ref.childByAutoId()
         
         //message values
-        let toId = self.post!.user!
+        let toId = self.toId!
         let fromId = Auth.auth().currentUser!.uid
         let timestamp = Int(NSDate().timeIntervalSince1970)
         let values = ["text": inputTextField.text!, "toId": toId, "fromId": fromId, "timestamp":timestamp] as [String : Any]
@@ -107,6 +195,9 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate {
                 print(error!)
                 return
             }
+            
+            //clear textfield input
+            self.inputTextField.text = nil
             
             guard let messageId = childRef.key else { return }
             
@@ -123,4 +214,15 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate {
         handleSend()
         return true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+    guard let input = input else { return nil }
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+    return input.rawValue
 }

@@ -26,6 +26,7 @@
 		4E563A2921B5A5C200ABDCF5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E563A2821B5A5C200ABDCF5 /* Message.swift */; };
 		4E563A2B21B5A6F400ABDCF5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E563A2A21B5A6F400ABDCF5 /* MessagesViewController.swift */; };
 		4E563A3021B5B45900ABDCF5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E563A2F21B5B45900ABDCF5 /* UserCell.swift */; };
+		4E563A3221B883FA00ABDCF5 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E563A3121B883FA00ABDCF5 /* ChatMessageCell.swift */; };
 		4E5F4C1B219399B80048E648 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C1A219399B80048E648 /* User.swift */; };
 		4E5F4C1D21939B090048E648 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C1C21939B090048E648 /* Category.swift */; };
 		4E6BA40521AE26FE00477D3B /* ProfileTutorFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */; };
@@ -60,6 +61,7 @@
 		4E563A2821B5A5C200ABDCF5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4E563A2A21B5A6F400ABDCF5 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		4E563A2F21B5B45900ABDCF5 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		4E563A3121B883FA00ABDCF5 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		4E5F4C1A219399B80048E648 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4E5F4C1C21939B090048E648 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTutorFlowLayout.swift; sourceTree = "<group>"; };
@@ -156,8 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				4E563A2A21B5A6F400ABDCF5 /* MessagesViewController.swift */,
-				4E8B79CB21B3223B00E4548F /* ChatLogViewController.swift */,
 				4E563A2F21B5B45900ABDCF5 /* UserCell.swift */,
+				4E8B79CB21B3223B00E4548F /* ChatLogViewController.swift */,
+				4E563A3121B883FA00ABDCF5 /* ChatMessageCell.swift */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				4E563A3021B5B45900ABDCF5 /* UserCell.swift in Sources */,
 				4E207AE821A47B2A007005A4 /* SelectDescriptionViewController.swift in Sources */,
 				4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */,
+				4E563A3221B883FA00ABDCF5 /* ChatMessageCell.swift in Sources */,
 				4EAFEEBB21863E7600D6C4F9 /* OfferClassTableViewCell.swift in Sources */,
 				4E54B670217F97AB00576C0C /* AppDelegate.swift in Sources */,
 				4E8B79CC21B3223B00E4548F /* ChatLogViewController.swift in Sources */,
