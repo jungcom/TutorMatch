@@ -93,6 +93,7 @@ class MessagesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         let message = messages[indexPath.row]
         cell.message = message
+        cell.profileImageView.image = UIImage(named: "mockPerson")
         
         return cell
     }

@@ -672,7 +672,7 @@
             </objects>
             <point key="canvasLocation" x="3710" y="66"/>
         </scene>
-        <!--Messages View Controller-->
+        <!--Messages-->
         <scene sceneID="Ux2-F7-9Li">
             <objects>
                 <tableViewController id="t4B-s0-lKI" customClass="MessagesViewController" customModule="ProjectX" customModuleProvider="target" sceneMemberID="viewController">
@@ -695,7 +695,7 @@
                             <outlet property="delegate" destination="t4B-s0-lKI" id="oKe-Pq-EHr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9ru-If-1s5"/>
+                    <navigationItem key="navigationItem" title="Messages" id="9ru-If-1s5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2x-sj-IIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1012,6 +1012,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hSr-VA-gRT">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
