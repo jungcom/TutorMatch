@@ -88,6 +88,12 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
         setupKeyboardObservers()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func setupKeyboardObservers(){
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
