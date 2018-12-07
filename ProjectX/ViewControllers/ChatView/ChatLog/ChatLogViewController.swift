@@ -84,6 +84,16 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
         collectionView.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         
         setupUI()
+        
+        setupKeyboardObservers()
+    }
+    
+    func setupKeyboardObservers(){
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,12 +106,36 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
         let message = messages[indexPath.item]
         cell.textView.text = message.text
         
+        setupCell(message, cell)
+        
         //Modify cell width
         if let txt = message.text{
             cell.bubbleWidthAnchor?.constant = estimateFrameForText(txt).width + 32
         }
         
         return cell
+    }
+    
+    fileprivate func setupCell(_ message: Message, _ cell: ChatMessageCell) {
+        
+        //TODO: Setup profile image
+//        if let profileImageUrl = self.user?.profileImageUrl {
+//            cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
+//        }
+        
+        if message.fromId == Auth.auth().currentUser?.uid{
+            cell.bubbleView.backgroundColor = Constants.purple
+            cell.textView.textColor = UIColor.white
+            cell.profileImageView.isHidden = true
+            cell.bubbleViewRightAnchor?.isActive = true
+            cell.bubbleViewLeftAnchor?.isActive = false
+        } else {
+            cell.bubbleView.backgroundColor = Constants.lightGray
+            cell.textView.textColor = UIColor.black
+            cell.profileImageView.isHidden = false
+            cell.bubbleViewRightAnchor?.isActive = false
+            cell.bubbleViewLeftAnchor?.isActive = true
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

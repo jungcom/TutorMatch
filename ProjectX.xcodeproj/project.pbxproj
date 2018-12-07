@@ -159,8 +159,7 @@
 			children = (
 				4E563A2A21B5A6F400ABDCF5 /* MessagesViewController.swift */,
 				4E563A2F21B5B45900ABDCF5 /* UserCell.swift */,
-				4E8B79CB21B3223B00E4548F /* ChatLogViewController.swift */,
-				4E563A3121B883FA00ABDCF5 /* ChatMessageCell.swift */,
+				4E563A3321B9ED0200ABDCF5 /* ChatLog */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
@@ -182,6 +181,15 @@
 				4E46530821860A6B00B022E0 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		4E563A3321B9ED0200ABDCF5 /* ChatLog */ = {
+			isa = PBXGroup;
+			children = (
+				4E8B79CB21B3223B00E4548F /* ChatLogViewController.swift */,
+				4E563A3121B883FA00ABDCF5 /* ChatMessageCell.swift */,
+			);
+			path = ChatLog;
 			sourceTree = "<group>";
 		};
 		4E5F4C19219399A00048E648 /* Model */ = {
