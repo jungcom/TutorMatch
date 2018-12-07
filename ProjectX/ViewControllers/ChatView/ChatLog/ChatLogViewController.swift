@@ -103,6 +103,7 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
     }
     
     @objc func handleKeyboardWillShow(_ notification: Notification) {
+        
         let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
         let keyboardDuration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         
@@ -226,6 +227,7 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
         //TextField
         containerView.addSubview(inputTextField)
         //x,y,w,h
+        inputTextField.returnKeyType = .send
         inputTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant:8).isActive = true
         inputTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         inputTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
