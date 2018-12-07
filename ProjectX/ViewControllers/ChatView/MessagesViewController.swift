@@ -43,6 +43,7 @@ class MessagesViewController: UITableViewController {
     }
     */
     
+    
     func observeUserMessages(){
         
         messages.removeAll()
@@ -56,32 +57,34 @@ class MessagesViewController: UITableViewController {
         let ref = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(userId)
         
         ref.observe(.childAdded, with: { (snapshot) in
-            let messageId = snapshot.key
-            let messageRef = Database.database().reference(fromURL: Constants.databaseURL).child("Messages").child(messageId)
-            
-            messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            let usersId = snapshot.key
+            Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(userId).child(usersId).observe(.childAdded, with: { (snapshot) in
                 
-                if let dictionary = snapshot.value as? [String:AnyObject]{
-                    let message = Message()
-                    message.setValuesForKeys(dictionary)
+                let messageId = snapshot.key
+                self.fetchMessageWithMsgId(messageId)
+            }, withCancel: nil)
+        }, withCancel: nil)
+    }
+    
+    fileprivate func fetchMessageWithMsgId(_ messageId: String) {
+        let messageRef = Database.database().reference(fromURL: Constants.databaseURL).child("Messages").child(messageId)
+        
+        messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String:AnyObject]{
+                let message = Message()
+                message.setValuesForKeys(dictionary)
+                
+                if let chatPartnerId = message.chatPartnerId(){
+                    self.messagesDictionary[chatPartnerId] = message
                     
-                    if let chatPartnerId = message.chatPartnerId(){
-                        self.messagesDictionary[chatPartnerId] = message
-                        self.messages = Array(self.messagesDictionary.values)
-                        
-                        //sort array in terms of time
-                        self.messages.sort(by: { (m1, m2) -> Bool in
-                            //descending time order
-                            return m1.timestamp?.intValue > m2.timestamp?.intValue
-                        })
-                    }
-                    
-                    //handle reloading tableview with a delay
-                    self.timer?.invalidate()
-                    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
                 }
                 
-            }, withCancel: nil)
+                //handle reloading tableview with a delay
+                self.timer?.invalidate()
+                self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+            }
+            
         }, withCancel: nil)
     }
     
@@ -89,9 +92,16 @@ class MessagesViewController: UITableViewController {
     var timer: Timer?
     
     @objc func handleReloadTable() {
+        self.messages = Array(self.messagesDictionary.values)
+        
+        //sort array in terms of time
+        self.messages.sort(by: { (m1, m2) -> Bool in
+            //descending time order
+            return m1.timestamp?.intValue > m2.timestamp?.intValue
+        })
+        
         //this will crash because of background thread, so lets call this on main thread
         DispatchQueue.main.async(execute: {
-            print("we reloaded the table")
             self.tableView.reloadData()
         })
     }

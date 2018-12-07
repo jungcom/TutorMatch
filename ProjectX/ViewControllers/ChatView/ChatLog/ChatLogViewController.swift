@@ -23,10 +23,10 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
     }
     
     func observeMessages(){
-        guard let uid = Auth.auth().currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid, let toId = toId else {
             return
         }
-        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(uid)
+        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(uid).child(toId)
         
         ref.observe(.childAdded, with: { (snapshot) in
             
@@ -264,10 +264,10 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
             
             guard let messageId = childRef.key else { return }
             
-            let userMessagesRef = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(fromId).child(messageId)
+            let userMessagesRef = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(fromId).child(toId).child(messageId)
             userMessagesRef.setValue(1)
             
-            let recipientUserMessagesRef = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(toId).child(messageId)
+            let recipientUserMessagesRef = Database.database().reference(fromURL: Constants.databaseURL).child("user-messages").child(toId).child(fromId).child(messageId)
             recipientUserMessagesRef.setValue(1)
             
         })
