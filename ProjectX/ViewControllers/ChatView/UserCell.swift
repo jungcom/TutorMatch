@@ -49,7 +49,6 @@ class UserCell: UITableViewCell {
     }
     
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
