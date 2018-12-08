@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jhz-HZ-MSs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -793,6 +793,13 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="hourlyPay" destination="dny-qV-qVN" id="IEb-bW-slG"/>
+                                            <outlet property="profilePic" destination="WDQ-FN-ZZo" id="ldW-Hg-zy4"/>
+                                            <outlet property="subject" destination="iDj-3X-1bh" id="und-s8-wK7"/>
+                                            <outlet property="subjectDescription" destination="iDj-3X-1bh" id="WxR-03-AD7"/>
+                                            <outlet property="tutorName" destination="a13-fQ-tob" id="nyU-SB-6eD"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -823,6 +830,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="wyI-OD-eAW"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="AdI-63-YDR" id="wqQ-ip-M6G"/>
                         <outlet property="logoutButton" destination="K0Q-Ao-nHv" id="8za-4r-Yy7"/>
                         <outlet property="profilePic" destination="5ne-If-eda" id="q3g-cw-FWX"/>
                         <outlet property="profileView" destination="5tW-HF-3X1" id="ZK1-kn-BCe"/>
@@ -1031,6 +1039,6 @@
         <image name="profile" width="22" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BsD-DR-5Gq"/>
+        <segue reference="mlY-ln-k4s"/>
     </inferredMetricsTieBreakers>
 </document>

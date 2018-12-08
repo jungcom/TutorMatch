@@ -10,7 +10,7 @@ import UIKit
 
 class TutorCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var subjectDescription: UITextView!
+    @IBOutlet weak var subjectDescription: UITextView?
     @IBOutlet weak var subject: UITextView!
     @IBOutlet weak var hourlyPay: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
@@ -18,7 +18,9 @@ class TutorCollectionViewCell: UICollectionViewCell {
     
     var post:Post!{
         didSet{
-            self.subjectDescription.text = post.subjectDescription
+            if let subjDes = post.subjectDescription{
+                self.subjectDescription?.text = subjDes
+            }
             self.subject.text = post.subject
             if let pay = post.hourlyPay{
                 if pay != "Free"{

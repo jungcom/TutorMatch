@@ -15,12 +15,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userName: UILabel!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var posts = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         setupUI()
         checkIfUserIsLoggedIn()
+        observeUserClasses()
     }
     
     //See if user is logged in
@@ -82,15 +86,39 @@ class ProfileViewController: UIViewController {
         }
         dismiss(animated: true, completion: nil)
     }
+    
+    func observeUserClasses(){
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference(fromURL: Constants.databaseURL).child("posts")
+        
+        // add filter for only not booked classes
+        let query = ref.queryOrdered(byChild: "booked").queryEqual(toValue: uid)
+        
+        query.observe(.childAdded, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject]{
+                let post = Post()
+                post.setValuesForKeys(dictionary)
+                self.posts.append(post)
+                
+                //reload Collectionview
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }, withCancel: nil)
+    }
 }
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TutorCollectionViewCell", for: indexPath) as! TutorCollectionViewCell
+        cell.post = posts[indexPath.row]
         return cell
     }
     

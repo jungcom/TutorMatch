@@ -41,9 +41,10 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
                 
                 let message = Message()
                 message.setValuesForKeys(dictionary)
+                print(message.text)
                 
                 //messages on the right
-                if message.chatPartnerId() == self.user?.uid{
+                if message.chatPartnerId() == self.toId{
                     self.messages.append(message)
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
@@ -246,6 +247,11 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
     }
     
     @objc func handleSend(){
+        
+        if inputTextField.text == ""{
+            return
+        }
+        
         let ref = Database.database(url: Constants.databaseURL).reference().child("Messages")
         let childRef = ref.childByAutoId()
         
