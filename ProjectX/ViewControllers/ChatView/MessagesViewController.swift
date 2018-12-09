@@ -21,6 +21,8 @@ class MessagesViewController: UITableViewController {
         // Do any additional setup after loading the view.
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         tableView.rowHeight = 72
+        tableView.allowsMultipleSelectionDuringEditing = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +65,12 @@ class MessagesViewController: UITableViewController {
                 let messageId = snapshot.key
                 self.fetchMessageWithMsgId(messageId)
             }, withCancel: nil)
+        }, withCancel: nil)
+        
+        //when a child node is removed
+        ref.observe(.childRemoved, with: { (snapshot) in
+            self.messagesDictionary.removeValue(forKey: snapshot.key)
+            self.handleReloadTable()
         }, withCancel: nil)
     }
     
@@ -144,6 +152,30 @@ class MessagesViewController: UITableViewController {
         let chatlogVC = ChatLogViewController(collectionViewLayout:UICollectionViewFlowLayout())
         chatlogVC.user = user
         self.navigationController?.pushViewController(chatlogVC, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    //delete message
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let message = messages[indexPath.row]
+        
+        if let chatPartnerId = message.chatPartnerId(){
+            Database.database().reference(fromURL: Constants.databaseURL).child("user-message").child(uid).child(chatPartnerId).removeValue { (error, ref) in
+                if error != nil{
+                    print("Failed to delete message",error)
+                    return
+                }
+                
+                self.messagesDictionary.removeValue(forKey: chatPartnerId)
+                self.handleReloadTable()
+            }
+        }
     }
 }
 
