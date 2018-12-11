@@ -39,6 +39,9 @@ class MainFeedsViewController: UIViewController {
         // Do any additional setup after loading the view.
         print("viewdidload for main")
         setupUI()
+        
+        //Retain Search results
+        retrievePosts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +49,7 @@ class MainFeedsViewController: UIViewController {
         print("viewwillappear for main")
         
         //Retain Search results
-        retrievePosts()
+        //retrievePosts()
         
         //Show tab bar
         self.tabBarController?.tabBar.isHidden = false
@@ -73,6 +76,7 @@ class MainFeedsViewController: UIViewController {
         let query = ref.queryOrdered(byChild: "booked").queryEqual(toValue: "No")
         
         //get the posted data
+        
         query.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
                 let post = Post()
@@ -88,7 +92,22 @@ class MainFeedsViewController: UIViewController {
             }
         }, withCancel: nil)
         
+        query.observe(.childChanged, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject]{
+                let post = Post()
+                post.setValuesForKeys(dictionary)
+                self.posts.append(post)
+                self.filteredPosts.append(post)
+                
+                //reload Collectionview
+                DispatchQueue.main.async {
+                    self.tutorCollectionView.reloadData()
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }, withCancel: nil)
         
+        self.refreshControl.endRefreshing()
     }
     
     @IBAction func searchButtonTapped(_ sender: Any) {

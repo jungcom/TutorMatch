@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var posts = [Post]()
+    var uid : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,7 @@ class ProfileViewController: UIViewController {
         setupUI()
         checkIfUserIsLoggedIn()
         observeUserClasses()
+        profilePicAddGesture()
     }
     
     //See if user is logged in
@@ -35,6 +38,8 @@ class ProfileViewController: UIViewController {
         } else {
             //Get user data if user is logged in
             if let uid = Auth.auth().currentUser?.uid{
+                
+                self.uid = uid
                 
                 Database.database().reference(fromURL: Constants.databaseURL).child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let dictionary = snapshot.value as? [String: AnyObject]{
@@ -123,4 +128,93 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     
+}
+
+extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    //Add imagePicker for profileView
+    func profilePicAddGesture(){
+        profilePic.isUserInteractionEnabled = true
+        profilePic.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+    }
+    
+    @objc func handleSelectProfileImageView(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            profilePic.image = selectedImage
+        }
+        
+        //Save this image to Firebase
+        saveImageToDatabase()
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //TO-DO
+    func saveImageToDatabase(){
+        let imageName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+        
+        if let uploadData = self.profilePic.image!.pngData(){
+            storageRef.putData(uploadData, metadata: nil) { (_, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                
+                storageRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    
+                    guard let url = url else { return }
+                    let urlString = url.absoluteString
+                    if let uid = self.uid{
+                        self.updateUserProfileImageUrl(uid, urlString)
+                    }
+                })
+            }
+        }
+    }
+    
+    //Update Firebase Database User ProfileImageUrl
+    func updateUserProfileImageUrl(_ uid : String, _ url : String){
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users").child(uid)
+        let values = ["profileImageUrl" : url]
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            
+            if let err = err {
+                print(err)
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
+}
+
+//helper function
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

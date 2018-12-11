@@ -132,6 +132,7 @@ class SignUpViewController: UIViewController {
                 self.ref = Database.database().reference(fromURL: databaseURL)
                 let userRef = self.ref.child("users").child(uid)
                 var values = ["firstName": self.firstNameTextField.text, "lastName":self.lastNameTextField.text, "email":email]
+                values["profileImageUrl"] = "Nil"
                 values["uid"] = uid
                 userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     if err != nil{

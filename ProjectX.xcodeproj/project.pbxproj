@@ -148,7 +148,7 @@
 				4E67C35821B094C4002A08BC /* Authentication */,
 				4E563A2D21B5B3CA00ABDCF5 /* MainView */,
 				4E563A2C21B5A6FF00ABDCF5 /* ChatView */,
-				4E563A2E21B5B40700ABDCF5 /* Profile */,
+				4E563A2E21B5B40700ABDCF5 /* ProfileView */,
 				4E207AE021A1D2A5007005A4 /* OfferClassPopups */,
 			);
 			path = ViewControllers;
@@ -174,13 +174,13 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
-		4E563A2E21B5B40700ABDCF5 /* Profile */ = {
+		4E563A2E21B5B40700ABDCF5 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
 				4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */,
 				4E46530821860A6B00B022E0 /* ProfileViewController.swift */,
 			);
-			path = Profile;
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		4E563A3321B9ED0200ABDCF5 /* ChatLog */ = {
