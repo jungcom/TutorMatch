@@ -19,6 +19,17 @@ class ProfileViewController: UIViewController {
     
     var posts = [Post]()
     var uid : String?
+    var currentUser = User(){
+        didSet{
+            self.userName.text = self.currentUser.firstName
+            
+            //TODO :set url
+            if let profileImageUrl = currentUser.profileImageUrl{
+                let url = NSURL(string: profileImageUrl)
+                
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +39,12 @@ class ProfileViewController: UIViewController {
         checkIfUserIsLoggedIn()
         observeUserClasses()
         profilePicAddGesture()
+        retrieveProfilePic()
+    }
+    
+    //Receive Profile Picture
+    func retrieveProfilePic(){
+        
     }
     
     //See if user is logged in
@@ -43,7 +60,7 @@ class ProfileViewController: UIViewController {
                 
                 Database.database().reference(fromURL: Constants.databaseURL).child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let dictionary = snapshot.value as? [String: AnyObject]{
-                        self.userName.text = dictionary["firstName"] as? String
+                        self.currentUser.setValuesForKeys(dictionary)
                     }
                 })
             }
