@@ -19,17 +19,7 @@ class ProfileViewController: UIViewController {
     
     var posts = [Post]()
     var uid : String?
-    var currentUser = User(){
-        didSet{
-            self.userName.text = self.currentUser.firstName
-            
-            //TODO :set url
-            if let profileImageUrl = currentUser.profileImageUrl{
-                let url = NSURL(string: profileImageUrl)
-                
-            }
-        }
-    }
+    var currentUser = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +29,6 @@ class ProfileViewController: UIViewController {
         checkIfUserIsLoggedIn()
         observeUserClasses()
         profilePicAddGesture()
-        retrieveProfilePic()
-    }
-    
-    //Receive Profile Picture
-    func retrieveProfilePic(){
-        
     }
     
     //See if user is logged in
@@ -61,6 +45,10 @@ class ProfileViewController: UIViewController {
                 Database.database().reference(fromURL: Constants.databaseURL).child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                     if let dictionary = snapshot.value as? [String: AnyObject]{
                         self.currentUser.setValuesForKeys(dictionary)
+                        self.userName.text = self.currentUser.firstName
+                        if let profileImageUrl = self.currentUser.profileImageUrl{
+                            self.profilePic.loadImageUsingCacheWithUrlString(profileImageUrl)
+                        }
                     }
                 })
             }
@@ -185,7 +173,6 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         dismiss(animated: true, completion: nil)
     }
     
-    //TO-DO
     func saveImageToDatabase(){
         let imageName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")

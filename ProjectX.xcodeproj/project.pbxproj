@@ -36,6 +36,7 @@
 		4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */; };
 		4EAFEEBB21863E7600D6C4F9 /* OfferClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEBA21863E7600D6C4F9 /* OfferClassTableViewCell.swift */; };
 		4EC217EB21908D5E00B711EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */; };
+		4EF2B31A21C5A5A200D11B3B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2B31921C5A5A200D11B3B /* Extensions.swift */; };
 		DFDAFAC15A1E2A0047448A55 /* Pods_ProjectX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687C2A9BC8368201E978B7F3 /* Pods_ProjectX.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassViewController.swift; sourceTree = "<group>"; };
 		4EAFEEBA21863E7600D6C4F9 /* OfferClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassTableViewCell.swift; sourceTree = "<group>"; };
 		4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4EF2B31921C5A5A200D11B3B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		687C2A9BC8368201E978B7F3 /* Pods_ProjectX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CE71A3EB434D621FD73BBC /* Pods-ProjectX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectX/Pods-ProjectX.debug.xcconfig"; sourceTree = "<group>"; };
 		93F38F0E3D9FFBDF4E48D95A /* Pods-ProjectX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectX.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectX/Pods-ProjectX.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				4E207AE321A46840007005A4 /* Constants.swift */,
 				4E207AEB21A5CA37007005A4 /* Post.swift */,
 				4E563A2821B5A5C200ABDCF5 /* Message.swift */,
+				4EF2B31921C5A5A200D11B3B /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				4E207AE221A1D2D1007005A4 /* SelectCategoryViewController.swift in Sources */,
 				4E563A2921B5A5C200ABDCF5 /* Message.swift in Sources */,
 				4E6BA40521AE26FE00477D3B /* ProfileTutorFlowLayout.swift in Sources */,
+				4EF2B31A21C5A5A200D11B3B /* Extensions.swift in Sources */,
 				4E207AEC21A5CA37007005A4 /* Post.swift in Sources */,
 				4E54B68721801F5100576C0C /* SignUpViewController.swift in Sources */,
 				4E5F4C1D21939B090048E648 /* Category.swift in Sources */,
