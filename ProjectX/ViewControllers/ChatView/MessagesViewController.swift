@@ -122,7 +122,18 @@ class MessagesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         let message = messages[indexPath.row]
         cell.message = message
-        cell.profileImageView.image = UIImage(named: "mockPerson")
+        if let chatPartnerId = cell.message?.chatPartnerId(){
+            Database.database().reference().child("users").child(chatPartnerId).observe(.value) { (snapshot) in
+                let dictionary = snapshot.value as! [String : AnyObject]
+                let user = User()
+                user.setValuesForKeys(dictionary)
+                if let url = user.profileImageUrl{
+                    cell.profileImageView.loadImageUsingCacheWithUrlString(url)
+                }
+                
+            }
+        }
+        //cell.profileImageView.image = UIImage(named: "mockPerson")
         
         return cell
     }

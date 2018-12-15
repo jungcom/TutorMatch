@@ -67,12 +67,9 @@ class ProfileViewController: UIViewController {
         logoutButton.clipsToBounds = true
         
         //Profile Picture
-        profilePic.layer.cornerRadius = 30
-//        profilePic.layer.shadowColor = UIColor.gray.cgColor
-//        profilePic.layer.shadowOffset = CGSize(width: 0 ,height:1)
-//        profilePic.layer.shadowOpacity = 1
-//        profilePic.layer.shadowRadius = 1.0
-        profilePic.clipsToBounds = true
+        
+        profilePic.layer.cornerRadius = 20
+        profilePic.layer.masksToBounds = true
     }
     /*
     // MARK: - Navigation
