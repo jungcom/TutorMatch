@@ -172,9 +172,9 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
     
     func saveImageToDatabase(){
         let imageName = NSUUID().uuidString
-        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
         
-        if let uploadData = self.profilePic.image!.pngData(){
+        if let profileImage = self.profilePic.image, let uploadData = profileImage.jpegData(compressionQuality: 0.05){
             storageRef.putData(uploadData, metadata: nil) { (_, error) in
                 if error != nil {
                     print(error)

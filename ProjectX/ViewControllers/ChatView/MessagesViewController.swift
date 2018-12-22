@@ -129,11 +129,12 @@ class MessagesViewController: UITableViewController {
                 user.setValuesForKeys(dictionary)
                 if let url = user.profileImageUrl{
                     cell.profileImageView.loadImageUsingCacheWithUrlString(url)
+                } else {
+                    cell.profileImageView.image = UIImage(named: "mockPerson")
                 }
                 
             }
         }
-        //cell.profileImageView.image = UIImage(named: "mockPerson")
         
         return cell
     }
