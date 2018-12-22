@@ -119,14 +119,14 @@ extension LoginViewController : UITextFieldDelegate{
         let border = CALayer()
         let width = CGFloat(1.0)
         border.borderColor = UIColor.white.cgColor
-        border.frame = CGRect(x: 10, y: textField.frame.size.height - width, width: textField.frame.size.width, height: textField.frame.size.height)
+        border.frame = CGRect(x: 12, y: textField.frame.size.height - width, width: textField.frame.size.width, height: textField.frame.size.width)
         border.borderWidth = width
         return border
     }
     
     static func setTextFieldImage(_ userIcon: UIImage?, textField: UITextField) {
         let image = UIImageView(image: userIcon)
-        image.frame = CGRect(x: 0.0, y: 0.0, width: userIcon!.size.width + 20, height: (userIcon?.size.height)!)
+        image.frame = CGRect(x: 0.0, y: 0.0, width: userIcon!.size.width + 20, height: (userIcon?.size.height)!-4)
         image.contentMode = .scaleAspectFit
         image.tintColor = UIColor.white
         textField.leftView = image
