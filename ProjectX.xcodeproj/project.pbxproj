@@ -31,8 +31,6 @@
 		4E5F4C1D21939B090048E648 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F4C1C21939B090048E648 /* Category.swift */; };
 		4E6BA40521AE26FE00477D3B /* ProfileTutorFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */; };
 		4E8B79CC21B3223B00E4548F /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B79CB21B3223B00E4548F /* ChatLogViewController.swift */; };
-		4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */; };
-		4EAFEEB621860FE300D6C4F9 /* CategoryFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */; };
 		4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */; };
 		4EAFEEBB21863E7600D6C4F9 /* OfferClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAFEEBA21863E7600D6C4F9 /* OfferClassTableViewCell.swift */; };
 		4EC217EB21908D5E00B711EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */; };
@@ -67,8 +65,6 @@
 		4E5F4C1C21939B090048E648 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4E6BA40421AE26FE00477D3B /* ProfileTutorFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTutorFlowLayout.swift; sourceTree = "<group>"; };
 		4E8B79CB21B3223B00E4548F /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
-		4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFlowLayout.swift; sourceTree = "<group>"; };
 		4EAFEEB721863E1400D6C4F9 /* OfferClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassViewController.swift; sourceTree = "<group>"; };
 		4EAFEEBA21863E7600D6C4F9 /* OfferClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferClassTableViewCell.swift; sourceTree = "<group>"; };
 		4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -170,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				4E54B684217F998F00576C0C /* MainFeedsViewController.swift */,
-				4EAFEEB221860FA100D6C4F9 /* CategoryCollectionView */,
 				4EAFEEB121860F8A00D6C4F9 /* TutorCollectionView */,
 			);
 			path = MainView;
@@ -223,15 +218,6 @@
 				4E4653032185584300B022E0 /* TutorCollectionViewCell.swift */,
 			);
 			path = TutorCollectionView;
-			sourceTree = "<group>";
-		};
-		4EAFEEB221860FA100D6C4F9 /* CategoryCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				4EAFEEB521860FE300D6C4F9 /* CategoryFlowLayout.swift */,
-				4EAFEEB321860FD200D6C4F9 /* CategoryCollectionViewCell.swift */,
-			);
-			path = CategoryCollectionView;
 			sourceTree = "<group>";
 		};
 		4EAFEEB921863E5D00D6C4F9 /* OfferClassTableView */ = {
@@ -380,7 +366,6 @@
 			files = (
 				4E5F4C1B219399B80048E648 /* User.swift in Sources */,
 				4E54B672217F97AB00576C0C /* LoginViewController.swift in Sources */,
-				4EAFEEB621860FE300D6C4F9 /* CategoryFlowLayout.swift in Sources */,
 				4E4653042185584300B022E0 /* TutorCollectionViewCell.swift in Sources */,
 				4EAFEEB821863E1400D6C4F9 /* OfferClassViewController.swift in Sources */,
 				4E54B685217F998F00576C0C /* MainFeedsViewController.swift in Sources */,
@@ -388,7 +373,6 @@
 				4E207AE421A46840007005A4 /* Constants.swift in Sources */,
 				4E563A3021B5B45900ABDCF5 /* UserCell.swift in Sources */,
 				4E207AE821A47B2A007005A4 /* SelectDescriptionViewController.swift in Sources */,
-				4EAFEEB421860FD200D6C4F9 /* CategoryCollectionViewCell.swift in Sources */,
 				4E563A3221B883FA00ABDCF5 /* ChatMessageCell.swift in Sources */,
 				4EAFEEBB21863E7600D6C4F9 /* OfferClassTableViewCell.swift in Sources */,
 				4E54B670217F97AB00576C0C /* AppDelegate.swift in Sources */,

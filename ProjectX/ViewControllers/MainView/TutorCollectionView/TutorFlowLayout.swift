@@ -19,7 +19,7 @@ class TutorFlowLayout: UICollectionViewFlowLayout{
         minimumLineSpacing = 5
         itemSize = CGSize(width: collectionView!.bounds.width, height: collectionView!.bounds.height/3)
         //Margins
-        sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
+        sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         collectionView!.decelerationRate = UIScrollView.DecelerationRate.fast
     }
 }

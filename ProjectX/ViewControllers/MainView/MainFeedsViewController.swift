@@ -14,12 +14,9 @@ class MainFeedsViewController: UIViewController {
     var ref: DatabaseReference!
     var handle: DatabaseHandle!
     
-    @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var tutorCollectionView: UICollectionView!
     
     var searchController: UISearchController!
-    
-    var category = ["All",Category.Academics.rawValue,"Sports","Tech","Art","Music"]
     
     //Mock Data
 //    var subjects :[String] = []
@@ -83,7 +80,7 @@ class MainFeedsViewController: UIViewController {
                 post.setValuesForKeys(dictionary)
                 self.posts.append(post)
                 self.filteredPosts.append(post)
-                
+                print(post.category)
                 //reload Collectionview
                 DispatchQueue.main.async {
                     self.tutorCollectionView.reloadData()
@@ -170,57 +167,31 @@ extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDa
      }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(collectionView == self.tutorCollectionView){
-            return filteredPosts.count
-        } else {
-            return category.count
-        }
+        return filteredPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if(collectionView == self.tutorCollectionView){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TutorCollectionViewCell", for: indexPath) as! TutorCollectionViewCell
-            //cell.profilePic.image = UIImage(named: profilePic[indexPath.row])
-            cell.post = filteredPosts[indexPath.row]
-            return cell
-            
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-            cell.categoryLabel.text = category[indexPath.row]
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TutorCollectionViewCell", for: indexPath) as! TutorCollectionViewCell
+        //cell.profilePic.image = UIImage(named: profilePic[indexPath.row])
+        cell.post = filteredPosts[indexPath.row]
+        return cell
     }
     
     //When cell is selected
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //change color
-        if(collectionView == self.categoryCollectionView){
-            let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
-            cell.backgroundColor = UIColor(red: 148/255, green: 55/255, blue: 255/255, alpha: 1)
-        } else {
-            //create an alertview saying whether you actually want to book
-            let alert = UIAlertController(title: "Book Class", message: "Are you sure you want to book this class?", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Yes", style: .default){ (action) in
-                //MARK: TODO - move to message chat segue + change the post's status to booked
-                self.changeBookStatus(self.filteredPosts[indexPath.row])
-                self.showChatLog(self.filteredPosts[indexPath.row])
-            }
-            let confirm = UIAlertAction(title: "No", style: .cancel, handler: nil)
-            alert.addAction(cancel)
-            alert.addAction(confirm)
-            present(alert, animated: true)
+        //create an alertview saying whether you actually want to book
+        let alert = UIAlertController(title: "Book Class", message: "Are you sure you want to book this class?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Yes", style: .default){ (action) in
+            //MARK: TODO - move to message chat segue + change the post's status to booked
+            self.changeBookStatus(self.filteredPosts[indexPath.row])
+            self.showChatLog(self.filteredPosts[indexPath.row])
         }
+        let confirm = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        present(alert, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if(collectionView == self.categoryCollectionView){
-            guard var cell = collectionView.cellForItem(at: indexPath) else {
-                return
-            }
-            cell = cell as! CategoryCollectionViewCell
-            cell.backgroundColor = UIColor.white
-        }
-    }
     
     func showChatLog(_ post:Post){
         let chatlogVC = ChatLogViewController(collectionViewLayout:UICollectionViewFlowLayout())
