@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purple" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-3a-6Y0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-l6-ogR">
+                                <rect key="frame" x="109" y="260" width="156" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wZb-3a-6Y0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="JPU-sp-0PT"/>
+                            <constraint firstItem="wZb-3a-6Y0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eQN-GT-EOC"/>
+                            <constraint firstItem="wZb-3a-6Y0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gvy-mc-c5s"/>
+                            <constraint firstItem="wZb-3a-6Y0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ojN-NM-xVc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1223.2" y="384.55772113943033"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon" width="512" height="512"/>
+        <image name="purple" width="360" height="640"/>
+    </resources>
+</document>

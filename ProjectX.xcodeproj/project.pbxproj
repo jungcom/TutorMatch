@@ -133,9 +133,9 @@
 				4E54B66F217F97AB00576C0C /* AppDelegate.swift */,
 				4E54B673217F97AB00576C0C /* Main.storyboard */,
 				4E54B676217F97AD00576C0C /* Assets.xcassets */,
-				4E54B678217F97AD00576C0C /* LaunchScreen.storyboard */,
 				4E54B67B217F97AD00576C0C /* Info.plist */,
 				4EC217EA21908D5E00B711EF /* GoogleService-Info.plist */,
+				4E9BB7A521D05E3800E06B2D /* LaunchScreen */,
 			);
 			path = ProjectX;
 			sourceTree = "<group>";
@@ -209,6 +209,14 @@
 				4E54B68621801F5100576C0C /* SignUpViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		4E9BB7A521D05E3800E06B2D /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4E54B678217F97AD00576C0C /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		4EAFEEB121860F8A00D6C4F9 /* TutorCollectionView */ = {
