@@ -134,7 +134,19 @@ extension LoginViewController : UITextFieldDelegate{
     }
     
     //MARK: TextField Delegates
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.2, delay: 0,options: UIView.AnimationOptions.curveEaseOut,animations: {
+            self.view.frame.origin.y = -80 // If you want to restrict the button not to repeat animation..You can enable by setting into true
+            
+        },completion: nil)
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.2, delay: 0,options: UIView.AnimationOptions.curveEaseOut,animations: {
+            self.view.frame.origin.y = 0 // If you want to restrict the button not to repeat animation..You can enable by setting into true
+            
+        },completion: nil)
         textField.resignFirstResponder()
     }
     
@@ -143,4 +155,3 @@ extension LoginViewController : UITextFieldDelegate{
         return true
     }
 }
-
