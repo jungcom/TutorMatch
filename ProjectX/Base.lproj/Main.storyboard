@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CxF-pQ-Nti">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -367,7 +367,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7x-Md-ais">
-                                                    <rect key="frame" x="189" y="28" width="171" height="44"/>
+                                                    <rect key="frame" x="223" y="28" width="171" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.90958121830000005" green="0.7082913207" blue="0.12596714689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -412,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odU-fH-rxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2621.5999999999999" y="-895.50224887556226"/>
+            <point key="canvasLocation" x="2620.289855072464" y="-895.92391304347836"/>
         </scene>
         <!--Select Category View Controller-->
         <scene sceneID="TdD-WX-ab0">
@@ -423,7 +423,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8M-3M-o7k">
-                                <rect key="frame" x="65" y="234" width="244" height="198"/>
+                                <rect key="frame" x="85" y="269" width="244" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y8e-7K-HZP">
@@ -467,7 +467,10 @@
                         <viewLayoutGuide key="safeArea" id="JBr-Dk-oQP"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="AtP-rK-siL" id="lcO-Ir-v92"/>
+                        <outlet property="pickerView" destination="Y8e-7K-HZP" id="xEe-Mu-Ni6"/>
                         <outlet property="popupView" destination="i8M-3M-o7k" id="iu7-hO-5Ik"/>
+                        <outlet property="selectButton" destination="wVQ-BG-dWs" id="Dt3-ML-Rv0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pce-eC-qQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
