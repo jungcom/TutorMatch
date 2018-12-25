@@ -27,8 +27,6 @@ Here's a walkthrough of the app:
 
 <img src='https://i.imgur.com/xvHBBIw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<img src='https://i.imgur.com/iwlkh8T.png' title='Video Walkthrough' width='200px' alt='ScreenShots' />
-
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
