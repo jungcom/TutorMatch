@@ -1,49 +1,38 @@
 # *UTutor*
 
-**UTutorp** is a Chat app using an [open source Parse](http://parseplatform.org/) backend.
-
-Time spent: **5** hours spent in total
+**UTutor** is a tutor matching app using a Firebase backend.
 
 ## User Stories
 
-The following **required** user stories are complete:
+The following functionalities are complete:
 
-- [O] User can sign up and sign in to the login screen (+1pt)
-- [O] User sees alerts for login exceptions, i.e. "account already exists", "wrong credentials", etc. (+1pt)
-- [O] User can compose and send chat messages (+2pt)
-- [O] User can view a list of chat messages in chronological order (+2pt)
-- [O] Automatically Adjust Cell Size to Fit Text (+1pt)
-- [O] Username of chat author is displayed in each chat message (+2pt)
+- [O] User can compose and send chat messages to tutors!!!! (Most difficult)
+- [O] User can sign up and sign in to the login screen and sees alerts for login exceptions, i.e. "account already exists", "wrong credentials"
+- [O] User can view a list of open classes/sessions in chronological order
+- [O] User can post a class/session
+- [O] User has a profile page that shows the list of classes they are taking (+2pt)
 - [O] Persist Logged in User (+1pt)
 
-The following **stretch** user stories are implemented:
+The following functionalities should be implemented:
 
-- [ ] User sees an activity indicator while waiting for authentication (+1pt)
-- [ ] User can pull to refresh Chat feed (+1pt)
-- [ ] Add an "Adorable Avatar" for each user by requesting an avatar from the [Adorable Avatars API](https://github.com/adorableio/avatars-api) (+2pt)
-- [O] Chat Bubble Style Design (+3pt)
-- [ ] Expand or contract the cell layout as needed to show the chat message author (user) if it exists (+2pt)
+- [ ] More user friendly UI/UX (Most important)
+- [ ] Different constraints for different IPhones
+- [ ] Debug messaging errors
 
-The following **additional** user stories are implemented:
+## Video Walkthrough/ScreenShots
 
-- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+Here's a walkthrough of the app:
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1.
-2.
-
-## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-<img src='https://i.imgur.com/fDASup3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/Rd8bzVw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/iwlkh8T' title='Video Walkthrough' width='' alt='ScreenShots' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+The hardest part of building this app was the chat messaging implementation. Tracking all the user messages and saving it to the database was quite challenging, and it was even harder when retrieving that information based on the user or sender.
 
 ## License
 
