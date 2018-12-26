@@ -515,7 +515,7 @@
                                             <action selector="selectButton:" destination="v5n-aY-AKs" eventType="touchUpInside" id="opW-YW-7zt"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert Subject Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhX-MX-nzH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert Subject Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhX-MX-nzH">
                                         <rect key="frame" x="8" y="8" width="228" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -909,7 +909,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert Subject Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ki6-GL-bME">
                                         <rect key="frame" x="8" y="8" width="228" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -928,8 +928,11 @@
                         <viewLayoutGuide key="safeArea" id="XXJ-zz-dqd"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="R2h-oQ-O0d" id="BgM-xT-dhQ"/>
                         <outlet property="popupView" destination="ld7-x6-YIu" id="IFL-i5-lHo"/>
+                        <outlet property="selectButton" destination="lvF-En-zk0" id="Epz-yU-0XJ"/>
                         <outlet property="subjectTextField" destination="XOh-F2-Qzr" id="8aN-PG-uil"/>
+                        <outlet property="titleLabel" destination="ki6-GL-bME" id="Hal-oV-jIo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1v-bV-1zu" userLabel="First Responder" sceneMemberID="firstResponder"/>

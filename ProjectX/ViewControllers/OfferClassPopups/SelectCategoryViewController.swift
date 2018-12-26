@@ -51,10 +51,10 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
         
         //PickerView Constraints
         pickerView.translatesAutoresizingMaskIntoConstraints = false
-        pickerView.topAnchor.constraint(equalTo: popupView.topAnchor).isActive = true
+        pickerView.topAnchor.constraint(equalTo: popupView.topAnchor, constant:-20).isActive = true
         pickerView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
         pickerView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
-        pickerView.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.85).isActive = true
+        pickerView.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.9).isActive = true
         
     }
     
