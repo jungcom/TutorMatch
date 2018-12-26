@@ -515,10 +515,10 @@
                                             <action selector="selectButton:" destination="v5n-aY-AKs" eventType="touchUpInside" id="opW-YW-7zt"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert Subject Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhX-MX-nzH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert Subject Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhX-MX-nzH">
                                         <rect key="frame" x="8" y="8" width="228" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -537,8 +537,11 @@
                         <viewLayoutGuide key="safeArea" id="V8X-N0-9Ry"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="Zlp-Lk-NLQ" id="Knf-ub-PXc"/>
                         <outlet property="popupView" destination="Lti-Ed-R2x" id="mKo-8k-lsw"/>
+                        <outlet property="selectButton" destination="SNR-Wl-0dA" id="3pp-dq-fIx"/>
                         <outlet property="subjectTextField" destination="OEc-ng-9Hq" id="XHP-gr-Jrs"/>
+                        <outlet property="titleLabel" destination="PhX-MX-nzH" id="4rB-l1-oJQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tic-fL-02c" userLabel="First Responder" sceneMemberID="firstResponder"/>

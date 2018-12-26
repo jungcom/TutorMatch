@@ -33,7 +33,7 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
         popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         popupView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
-        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4).isActive = true
+        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
         
         //selectButton Constraints
         selectButton.translatesAutoresizingMaskIntoConstraints = false
