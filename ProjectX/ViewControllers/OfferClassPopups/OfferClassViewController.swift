@@ -10,7 +10,11 @@ import UIKit
 import Firebase
 
 class OfferClassViewController: UIViewController {
+    
     @IBOutlet weak var offerClassTableView: UITableView!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var bottomBar: UIView!
     
     var category:Category?
     var subject:String?
@@ -25,13 +29,9 @@ class OfferClassViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupUIConstraints()
         // Do any additional setup after loading the view.
         getCurrentUser()
-    }
-    
-    func setupUI(){
-        self.offerClassTableView.rowHeight = offerClassTableView.bounds.height/5
     }
     
     func getCurrentUser(){
@@ -50,7 +50,7 @@ class OfferClassViewController: UIViewController {
         }
     }
     
-    @IBAction func cancel(_ sender: Any) {
+    @objc func cancel(){
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -87,17 +87,6 @@ class OfferClassViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
@@ -177,4 +166,42 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+
+//Constraints
+extension OfferClassViewController{
+    func setupUIConstraints(){
+        //navBar constraints
+        navBar.translatesAutoresizingMaskIntoConstraints = false
+        navBar.delegate = self as? UINavigationBarDelegate
+        navBar.backgroundColor = UIColor.blue
+        navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        navBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        navBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+        //create navigation Item
+        let navItem = UINavigationItem()
+        navItem.title = "Offer A Class"
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
+        navBar.items = [navItem]
+        
+        
+        //TableView Constraints
+        offerClassTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        offerClassTableView.rowHeight = view.frame.height/6
+        offerClassTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        offerClassTableView.topAnchor.constraint(equalTo: navBar.bottomAnchor).isActive = true
+        offerClassTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        offerClassTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        offerClassTableView.bottomAnchor.constraint(equalTo: bottomBar.topAnchor).isActive = true
+        
+        //bottom View Constraints
+        bottomBar.translatesAutoresizingMaskIntoConstraints = false
+        bottomBar.topAnchor.constraint(equalTo: offerClassTableView.bottomAnchor).isActive = true
+        bottomBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        bottomBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        bottomBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15)
+        
+    }
 }
