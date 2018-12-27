@@ -13,7 +13,7 @@ class SelectDescriptionViewController: UIViewController {
     var subjectDescription:String?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var subjectTextField: UITextField!
+    @IBOutlet weak var subjectTextField: UITextView!
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
@@ -60,7 +60,7 @@ class SelectDescriptionViewController: UIViewController {
         
         //SubjectTextView Constraints
         subjectTextField.translatesAutoresizingMaskIntoConstraints = false
-        subjectTextField.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.2).isActive = true
+        subjectTextField.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.3).isActive = true
         subjectTextField.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant : -10).isActive = true
         subjectTextField.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant:10).isActive = true
         subjectTextField.centerYAnchor.constraint(equalTo: popupView.centerYAnchor).isActive = true
@@ -87,24 +87,24 @@ class SelectDescriptionViewController: UIViewController {
 
 
 
-extension SelectDescriptionViewController : UITextFieldDelegate{
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+extension SelectDescriptionViewController : UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
         UIView.animate(withDuration: 0.2, delay: 0,options: UIView.AnimationOptions.curveEaseOut,animations: {
             self.view.frame.origin.y = -80 // If you want to restrict the button not to repeat animation..You can enable by setting into true
             
         },completion: nil)
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         UIView.animate(withDuration: 0.2, delay: 0,options: UIView.AnimationOptions.curveEaseOut,animations: {
             self.view.frame.origin.y = 0 // If you want to restrict the button not to repeat animation..You can enable by setting into true
             
         },completion: nil)
-        textField.resignFirstResponder()
+        textView.resignFirstResponder()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
         return true
     }
 }

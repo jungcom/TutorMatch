@@ -913,13 +913,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOh-F2-Qzr">
-                                        <rect key="frame" x="8" y="84" width="228" height="30"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="les-21-SV7">
+                                        <rect key="frame" x="32" y="74" width="181" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                    </textField>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -931,13 +931,13 @@
                         <outlet property="cancelButton" destination="R2h-oQ-O0d" id="BgM-xT-dhQ"/>
                         <outlet property="popupView" destination="ld7-x6-YIu" id="IFL-i5-lHo"/>
                         <outlet property="selectButton" destination="lvF-En-zk0" id="Epz-yU-0XJ"/>
-                        <outlet property="subjectTextField" destination="XOh-F2-Qzr" id="8aN-PG-uil"/>
+                        <outlet property="subjectTextField" destination="les-21-SV7" id="dR1-QZ-oNq"/>
                         <outlet property="titleLabel" destination="ki6-GL-bME" id="Hal-oV-jIo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1v-bV-1zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4844" y="-896"/>
+            <point key="canvasLocation" x="4843.4782608695659" y="-896.73913043478262"/>
         </scene>
         <!--Select Hourly Pay View Controller-->
         <scene sceneID="R6b-SC-RV3">
@@ -992,7 +992,10 @@
                         <viewLayoutGuide key="safeArea" id="zYv-gx-pHw"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="LPY-xH-lJl" id="aVE-Np-wOh"/>
+                        <outlet property="pickerView" destination="zdX-Tt-xeI" id="ojq-HQ-2p6"/>
                         <outlet property="popupView" destination="mix-eK-Pzz" id="Sga-Kj-Daw"/>
+                        <outlet property="selectButton" destination="BI6-k2-HeO" id="fWW-3J-2La"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgq-KX-OPn" userLabel="First Responder" sceneMemberID="firstResponder"/>

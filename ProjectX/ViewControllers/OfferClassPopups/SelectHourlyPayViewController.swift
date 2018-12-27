@@ -13,11 +13,49 @@ class SelectHourlyPayViewController: UIViewController, UIPickerViewDelegate, UIP
     var hourlyPay : String?
     var hourlyPayArray = Constants.hourlyPay
     
+    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var selectButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        setupUIConstraints()
+    }
+    
+    func setupUIConstraints(){
+        
+        //popUpView Constraints
         popupView.layer.cornerRadius = 20
+        popupView.translatesAutoresizingMaskIntoConstraints = false
+        popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        popupView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        
+        //selectButton Constraints
+        selectButton.translatesAutoresizingMaskIntoConstraints = false
+        selectButton.topAnchor.constraint(equalTo: pickerView.bottomAnchor).isActive = true
+        selectButton.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
+        selectButton.widthAnchor.constraint(equalTo: popupView.widthAnchor, multiplier: 0.5).isActive = true
+        selectButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
+        
+        //CancelButton Constraints
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.topAnchor.constraint(equalTo: pickerView.bottomAnchor).isActive = true
+        cancelButton.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
+        cancelButton.widthAnchor.constraint(equalTo: popupView.widthAnchor, multiplier: 0.5).isActive = true
+        cancelButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
+        
+        //PickerView Constraints
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        pickerView.topAnchor.constraint(equalTo: popupView.topAnchor, constant:-20).isActive = true
+        pickerView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
+        pickerView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
+        pickerView.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.9).isActive = true
+        
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -27,8 +65,6 @@ class SelectHourlyPayViewController: UIViewController, UIPickerViewDelegate, UIP
         vc.offerClassTableView.reloadData()
     }
     
-    @IBOutlet weak var popupView: UIView!
-    
     @IBAction func selectButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         let vc = presentingViewController as! OfferClassViewController
@@ -36,14 +72,6 @@ class SelectHourlyPayViewController: UIViewController, UIPickerViewDelegate, UIP
         vc.hourlyPay = hourlyPay
 
         vc.offerClassTableView.reloadData()
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
     
     
