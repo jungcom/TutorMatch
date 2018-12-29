@@ -46,14 +46,14 @@ class SelectDescriptionViewController: UIViewController {
         
         //selectButton Constraints
         selectButton.translatesAutoresizingMaskIntoConstraints = false
-        selectButton.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.2).isActive = true
+        selectButton.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.15).isActive = true
         selectButton.leadingAnchor.constraint(equalTo: popupView.leadingAnchor).isActive = true
         selectButton.widthAnchor.constraint(equalTo: popupView.widthAnchor, multiplier: 0.5).isActive = true
         selectButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true
         
         //CancelButton Constraints
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.2).isActive = true
+        cancelButton.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.15).isActive = true
         cancelButton.trailingAnchor.constraint(equalTo: popupView.trailingAnchor).isActive = true
         cancelButton.widthAnchor.constraint(equalTo: popupView.widthAnchor, multiplier: 0.5).isActive = true
         cancelButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor).isActive = true

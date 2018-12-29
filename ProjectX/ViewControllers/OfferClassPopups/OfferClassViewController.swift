@@ -171,10 +171,9 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
 extension OfferClassViewController{
     func setupUIConstraints(){
 
-        //create navigation Item
+        //create cancel button
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
-        self.navigationController?.navigationItem.leftBarButtonItem = cancelButton
-        //navBar.items = [navItem]
+        self.navigationItem.leftBarButtonItem = cancelButton
         
         
         //TableView Constraints

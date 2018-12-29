@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="js7-U5-wDQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jhz-HZ-MSs">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -374,9 +374,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="edA-x2-7cv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Offer Class" id="EVh-MQ-cD8">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="KL8-MA-ArW"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Offer Class" id="EVh-MQ-cD8"/>
                     <connections>
                         <outlet property="bottomBar" destination="ked-tB-GXf" id="eAC-aU-koF"/>
                         <outlet property="offerClassButton" destination="3R3-tD-lvC" id="L0H-sb-ZOQ"/>

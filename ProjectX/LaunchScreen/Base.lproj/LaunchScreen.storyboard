@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,31 +14,36 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purple" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-3a-6Y0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-l6-ogR">
-                                <rect key="frame" x="109" y="260" width="156" height="147"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-l6-ogR">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="CxT-CW-QRg"/>
+                                    <constraint firstAttribute="height" constant="200" id="vid-Fu-0I8"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wZb-3a-6Y0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="JPU-sp-0PT"/>
-                            <constraint firstItem="wZb-3a-6Y0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eQN-GT-EOC"/>
+                            <constraint firstItem="wZb-3a-6Y0" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="eQN-GT-EOC"/>
                             <constraint firstItem="wZb-3a-6Y0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gvy-mc-c5s"/>
+                            <constraint firstItem="4ZL-l6-ogR" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="nzw-sq-mhE"/>
                             <constraint firstItem="wZb-3a-6Y0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ojN-NM-xVc"/>
+                            <constraint firstItem="4ZL-l6-ogR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="u4N-CT-Olq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1223.2" y="384.55772113943033"/>
+            <point key="canvasLocation" x="-1224.6376811594205" y="384.375"/>
         </scene>
     </scenes>
     <resources>
