@@ -69,13 +69,15 @@ class SelectDescriptionViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         subjectDescription = nil
-        let vc = presentingViewController as! OfferClassViewController
+        let navVc = presentingViewController as! UINavigationController
+        let vc = navVc.viewControllers.first as! OfferClassViewController
         vc.offerClassTableView.reloadData()
     }
     
     @IBAction func selectButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        let vc = presentingViewController as! OfferClassViewController
+        let navVc = presentingViewController as! UINavigationController
+        let vc = navVc.viewControllers.first as! OfferClassViewController
         if subjectTextField.text?.isEmpty ?? true{
             vc.subjectDescription = nil
         } else if let subjectDescription = subjectTextField.text{

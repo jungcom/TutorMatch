@@ -68,7 +68,8 @@ class SelectSubjectViewController: UIViewController {
     
     @IBAction func selectButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        let vc = presentingViewController as! OfferClassViewController
+        let navVc = presentingViewController as! UINavigationController
+        let vc = navVc.viewControllers.first as! OfferClassViewController
         if subjectTextField.text?.isEmpty ?? true{
             vc.subject = nil
         } else if let subject = subjectTextField.text{
@@ -80,7 +81,8 @@ class SelectSubjectViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         subject = nil
-        let vc = presentingViewController as! OfferClassViewController
+        let navVc = presentingViewController as! UINavigationController
+        let vc = navVc.viewControllers.first as! OfferClassViewController
         vc.offerClassTableView.reloadData()
     }
 

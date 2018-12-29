@@ -115,7 +115,7 @@ class LoginViewController: UIViewController {
 
 //UI Setup and TextFieldDelegates
 extension LoginViewController : UITextFieldDelegate{
-    static func createBottomBorder(_ textField : UITextField) -> CALayer{
+    static func createBottomBorder(_ textField : UIView) -> CALayer{
         let border = CALayer()
         let width = CGFloat(1.0)
         border.borderColor = UIColor.white.cgColor

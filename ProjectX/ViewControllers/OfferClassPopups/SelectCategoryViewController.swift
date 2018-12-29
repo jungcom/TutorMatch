@@ -61,13 +61,15 @@ class SelectCategoryViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         category = nil
-        let vc = presentingViewController as! OfferClassViewController
+        let navVc = presentingViewController as! UINavigationController
+        let vc = navVc.viewControllers.first as! OfferClassViewController
         vc.offerClassTableView.reloadData()
     }
     
     @IBAction func selectButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        let vc = presentingViewController as! OfferClassViewController
+        let navVc = presentingViewController as! UINavigationController
+        let vc = navVc.viewControllers.first as! OfferClassViewController
         vc.category = category
         vc.offerClassTableView.reloadData()
     }

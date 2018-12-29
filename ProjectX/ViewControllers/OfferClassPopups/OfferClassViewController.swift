@@ -12,9 +12,8 @@ import Firebase
 class OfferClassViewController: UIViewController {
     
     @IBOutlet weak var offerClassTableView: UITableView!
-    @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var bottomBar: UIView!
+    @IBOutlet weak var offerClassButton: UIButton!
     
     var category:Category?
     var subject:String?
@@ -171,19 +170,11 @@ extension OfferClassViewController : UITableViewDelegate, UITableViewDataSource{
 //Constraints
 extension OfferClassViewController{
     func setupUIConstraints(){
-        //navBar constraints
-        navBar.translatesAutoresizingMaskIntoConstraints = false
-        navBar.delegate = self as? UINavigationBarDelegate
-        navBar.backgroundColor = UIColor.blue
-        navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        navBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        navBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
         //create navigation Item
-        let navItem = UINavigationItem()
-        navItem.title = "Offer A Class"
-        navItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
-        navBar.items = [navItem]
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
+        self.navigationController?.navigationItem.leftBarButtonItem = cancelButton
+        //navBar.items = [navItem]
         
         
         //TableView Constraints
@@ -191,17 +182,25 @@ extension OfferClassViewController{
         
         offerClassTableView.rowHeight = view.frame.height/6
         offerClassTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        offerClassTableView.topAnchor.constraint(equalTo: navBar.bottomAnchor).isActive = true
-        offerClassTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        offerClassTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        offerClassTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        offerClassTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        offerClassTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         offerClassTableView.bottomAnchor.constraint(equalTo: bottomBar.topAnchor).isActive = true
         
         //bottom View Constraints
         bottomBar.translatesAutoresizingMaskIntoConstraints = false
         bottomBar.topAnchor.constraint(equalTo: offerClassTableView.bottomAnchor).isActive = true
-        bottomBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        bottomBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        bottomBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15)
+        bottomBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        bottomBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        bottomBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1).isActive = true
+        bottomBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        //OfferClassButton constraints
+        offerClassButton.translatesAutoresizingMaskIntoConstraints = false
+        offerClassButton.centerXAnchor.constraint(equalTo: bottomBar.centerXAnchor).isActive = true
+        offerClassButton.centerYAnchor.constraint(equalTo: bottomBar.centerYAnchor).isActive = true
+        offerClassButton.widthAnchor.constraint(equalTo: bottomBar.widthAnchor, multiplier: 0.9).isActive = true
+        offerClassButton.heightAnchor.constraint(equalTo: bottomBar.heightAnchor, multiplier: 0.85).isActive = true
         
     }
 }

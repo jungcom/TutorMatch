@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CxF-pQ-Nti">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="js7-U5-wDQ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -304,7 +304,7 @@
             </objects>
             <point key="canvasLocation" x="-2410.4000000000001" y="107.49625187406298"/>
         </scene>
-        <!--Offer Class View Controller-->
+        <!--Offer Class-->
         <scene sceneID="eCE-QV-7mq">
             <objects>
                 <viewController id="CxF-pQ-Nti" customClass="OfferClassViewController" customModule="ProjectX" customModuleProvider="target" sceneMemberID="viewController">
@@ -312,11 +312,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ked-tB-GXf">
-                                <rect key="frame" x="0.0" y="662" width="414" height="74"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ked-tB-GXf">
+                                <rect key="frame" x="0.0" y="662" width="181" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3R3-tD-lvC">
-                                        <rect key="frame" x="27" y="8" width="360" height="55"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3R3-tD-lvC">
+                                        <rect key="frame" x="27" y="8" width="127" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.33725490200000002" green="0.83137254900000002" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Offer Class">
@@ -328,24 +330,10 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="3R3-tD-lvC" firstAttribute="leading" secondItem="ked-tB-GXf" secondAttribute="leading" constant="27" id="2dL-q7-Df9"/>
-                                    <constraint firstAttribute="height" constant="74" id="Rtc-TS-dEi"/>
-                                    <constraint firstAttribute="trailing" secondItem="3R3-tD-lvC" secondAttribute="trailing" constant="27" id="mLm-AR-kOL"/>
-                                    <constraint firstItem="3R3-tD-lvC" firstAttribute="top" secondItem="ked-tB-GXf" secondAttribute="top" constant="8" id="nI2-mO-Lvb"/>
-                                    <constraint firstAttribute="bottom" secondItem="3R3-tD-lvC" secondAttribute="bottom" constant="11" id="uaI-I2-V7P"/>
-                                </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtL-4Q-AAa">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Offer A Class212" id="GoV-QB-SL3">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tgP-fx-Ww7"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ulN-kV-TgB">
-                                <rect key="frame" x="0.0" y="64" width="414" height="598"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ulN-kV-TgB">
+                                <rect key="frame" x="0.0" y="108" width="414" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfferClassTableViewCell" rowHeight="88" id="fst-Xt-Rmm" customClass="OfferClassTableViewCell" customModule="ProjectX" customModuleProvider="target">
@@ -384,24 +372,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ked-tB-GXf" firstAttribute="trailing" secondItem="edA-x2-7cv" secondAttribute="trailing" id="7cD-zT-go5"/>
-                            <constraint firstItem="ulN-kV-TgB" firstAttribute="top" secondItem="vtL-4Q-AAa" secondAttribute="bottom" id="I2a-Cp-9hm"/>
-                            <constraint firstItem="ked-tB-GXf" firstAttribute="bottom" secondItem="edA-x2-7cv" secondAttribute="bottom" id="MCP-jc-fc5"/>
-                            <constraint firstItem="ulN-kV-TgB" firstAttribute="trailing" secondItem="edA-x2-7cv" secondAttribute="trailing" id="MUc-nS-IlS"/>
-                            <constraint firstItem="ked-tB-GXf" firstAttribute="leading" secondItem="edA-x2-7cv" secondAttribute="leading" id="Uky-XI-3ZK"/>
-                            <constraint firstItem="ulN-kV-TgB" firstAttribute="leading" secondItem="edA-x2-7cv" secondAttribute="leading" id="XEi-DE-hPF"/>
-                            <constraint firstItem="vtL-4Q-AAa" firstAttribute="leading" secondItem="edA-x2-7cv" secondAttribute="leading" id="e0F-eW-fud"/>
-                            <constraint firstItem="vtL-4Q-AAa" firstAttribute="trailing" secondItem="edA-x2-7cv" secondAttribute="trailing" id="jsM-MH-4nR"/>
-                            <constraint firstItem="vtL-4Q-AAa" firstAttribute="top" secondItem="edA-x2-7cv" secondAttribute="top" id="qQy-Bc-6bi"/>
-                            <constraint firstItem="ked-tB-GXf" firstAttribute="top" secondItem="ulN-kV-TgB" secondAttribute="bottom" id="yyk-9H-DHq"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="edA-x2-7cv"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Offer Class" id="EVh-MQ-cD8">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="KL8-MA-ArW"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomBar" destination="ked-tB-GXf" id="eAC-aU-koF"/>
-                        <outlet property="navBar" destination="vtL-4Q-AAa" id="oTj-Lj-CE0"/>
-                        <outlet property="navItem" destination="GoV-QB-SL3" id="BfJ-4H-Ygh"/>
+                        <outlet property="offerClassButton" destination="3R3-tD-lvC" id="L0H-sb-ZOQ"/>
                         <outlet property="offerClassTableView" destination="ulN-kV-TgB" id="q8d-D2-Fa0"/>
                         <segue destination="l7V-Df-FIR" kind="presentation" identifier="SelectCategory" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="MR2-mZ-3CE"/>
                         <segue destination="v5n-aY-AKs" kind="presentation" identifier="SelectSubject" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="xCh-q2-qDD"/>
@@ -411,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odU-fH-rxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2620.289855072464" y="-895.92391304347836"/>
+            <point key="canvasLocation" x="3527.5362318840585" y="-895.92391304347836"/>
         </scene>
         <!--Select Category View Controller-->
         <scene sceneID="TdD-WX-ab0">
@@ -474,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pce-eC-qQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3396" y="-896.40179910044981"/>
+            <point key="canvasLocation" x="4302.898550724638" y="-896.73913043478262"/>
         </scene>
         <!--Select Subject View Controller-->
         <scene sceneID="VcF-RB-yUK">
@@ -545,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tic-fL-02c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4095" y="-896"/>
+            <point key="canvasLocation" x="5001.449275362319" y="-896.73913043478262"/>
         </scene>
         <!--Browse-->
         <scene sceneID="kul-PP-FPL">
@@ -638,7 +616,7 @@
                     <navigationItem key="navigationItem" title="Browse" id="UfS-Hd-aCk">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="C2m-3m-niq">
                             <connections>
-                                <segue destination="CxF-pQ-Nti" kind="presentation" id="8d8-U7-70B"/>
+                                <segue destination="js7-U5-wDQ" kind="presentation" id="8d8-U7-70B"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="RpG-8a-jPx">
@@ -936,7 +914,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1v-bV-1zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4843.4782608695659" y="-896.73913043478262"/>
+            <point key="canvasLocation" x="5750.7246376811599" y="-896.73913043478262"/>
         </scene>
         <!--Select Hourly Pay View Controller-->
         <scene sceneID="R6b-SC-RV3">
@@ -999,7 +977,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgq-KX-OPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5554" y="-896"/>
+            <point key="canvasLocation" x="6460.8695652173919" y="-896.73913043478262"/>
         </scene>
         <!--Messages-->
         <scene sceneID="oAW-V8-KUt">
@@ -1021,6 +999,25 @@
             </objects>
             <point key="canvasLocation" x="1338.4000000000001" y="1067.3163418290856"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q97-Nq-y8K">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="js7-U5-wDQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rwW-Cf-ruZ">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CxF-pQ-Nti" kind="relationship" relationship="rootViewController" id="ADa-xg-0X4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDY-uN-tRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2620.289855072464" y="-895.92391304347836"/>
+        </scene>
     </scenes>
     <resources>
         <image name="browsebutton" width="20" height="16"/>
@@ -1029,6 +1026,6 @@
         <image name="profile" width="22" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mlY-ln-k4s"/>
+        <segue reference="BsD-DR-5Gq"/>
     </inferredMetricsTieBreakers>
 </document>
