@@ -9,6 +9,8 @@
 import UIKit
 
 class TutorFlowLayout: UICollectionViewFlowLayout{
+    let leftRightInset = 10.0 as CGFloat
+    
     override func prepare() {
         super.prepare()
         setup()
@@ -17,9 +19,9 @@ class TutorFlowLayout: UICollectionViewFlowLayout{
     private func setup() {
         scrollDirection = .vertical
         minimumLineSpacing = 5
-        itemSize = CGSize(width: collectionView!.bounds.width, height: collectionView!.bounds.height/3)
+        itemSize = CGSize(width: collectionView!.bounds.width - leftRightInset*2, height: collectionView!.bounds.height/3)
         //Margins
-        sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        sectionInset = UIEdgeInsets(top: leftRightInset, left: leftRightInset, bottom: leftRightInset, right: leftRightInset)
         collectionView!.decelerationRate = UIScrollView.DecelerationRate.fast
     }
 }

@@ -42,5 +42,6 @@ class TutorCollectionViewCell: UICollectionViewCell {
             profilePic.layer.cornerRadius = 15
             profilePic.clipsToBounds = true
         }
+        layer.cornerRadius = 10
     }
 }

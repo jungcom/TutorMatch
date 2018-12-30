@@ -18,11 +18,6 @@ class MainFeedsViewController: UIViewController {
     
     var searchController: UISearchController!
     
-    //Mock Data
-//    var subjects :[String] = []
-//    var prices :[String] = []
-//    var usernames :[String] = []
-//    var subjectDescriptions : [String] = []
     var posts: [Post] = []
     
     //Search filter
@@ -62,6 +57,13 @@ class MainFeedsViewController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(retrievePosts), for: .valueChanged)
         tutorCollectionView.addSubview(refreshControl)
+        
+        //Add Constraints
+        tutorCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        tutorCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tutorCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tutorCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        tutorCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
     
     @objc func retrievePosts(){
@@ -142,17 +144,11 @@ class MainFeedsViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
 
 }
 
+
+//CollectionView Delegates
 extension MainFeedsViewController : UICollectionViewDelegate, UICollectionViewDataSource,UISearchResultsUpdating {
     
     //Search Function
