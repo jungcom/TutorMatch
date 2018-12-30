@@ -38,10 +38,37 @@ class TutorCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if let profilePic = profilePic{
-            profilePic.layer.cornerRadius = 15
-            profilePic.clipsToBounds = true
-        }
+        setupConstraints()
+        setupUI()
+    }
+    
+    func setupUI(){
+        //cell setup
         layer.cornerRadius = 10
+        
+        //profilepic setup
+//        if let profilePic = profilePic{
+//            profilePic.layer.cornerRadius = 15
+//            profilePic.clipsToBounds = true
+//        }
+        profilePic.contentMode = .scaleAspectFit
+        profilePic.layer.cornerRadius = 15
+        profilePic.clipsToBounds = true
+        
+        //subjectTitle setup
+        subject.textAlignment = .center
+    }
+    
+    func setupConstraints(){
+        //subjectTitle Constraints
+        subject.translatesAutoresizingMaskIntoConstraints = false
+        subject.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        subject.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        subject.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        
+        //subjectDescription Constraints
+        profilePic.translatesAutoresizingMaskIntoConstraints = false
+        profilePic.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        profilePic.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2).isActive = true
     }
 }
