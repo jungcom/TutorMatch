@@ -45,18 +45,22 @@ class TutorCollectionViewCell: UICollectionViewCell {
     func setupUI(){
         //cell setup
         layer.cornerRadius = 10
+        backgroundColor = .red
         
         //profilepic setup
 //        if let profilePic = profilePic{
 //            profilePic.layer.cornerRadius = 15
 //            profilePic.clipsToBounds = true
 //        }
-        profilePic.contentMode = .scaleAspectFit
-        profilePic.layer.cornerRadius = 15
-        profilePic.clipsToBounds = true
+        profilePic.contentMode = .scaleToFill
+        profilePic.layer.masksToBounds = true
+        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2.0
         
         //subjectTitle setup
         subject.textAlignment = .center
+        
+        //tutorName setup
+        tutorName.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
     func setupConstraints(){
@@ -66,9 +70,17 @@ class TutorCollectionViewCell: UICollectionViewCell {
         subject.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         subject.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         
-        //subjectDescription Constraints
+        //ProfilePic Constraints
         profilePic.translatesAutoresizingMaskIntoConstraints = false
         profilePic.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         profilePic.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2).isActive = true
+        profilePic.topAnchor.constraint(equalTo: subject.bottomAnchor, constant : 10).isActive = true
+        profilePic.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2).isActive = true
+        
+        //tutorName Constraints
+        
+        tutorName.translatesAutoresizingMaskIntoConstraints = false
+        tutorName.topAnchor.constraint(equalTo: subject.bottomAnchor, constant: 10).isActive = true
+        tutorName.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 10).isActive = true
     }
 }
