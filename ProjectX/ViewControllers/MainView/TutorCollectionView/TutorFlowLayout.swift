@@ -18,8 +18,8 @@ class TutorFlowLayout: UICollectionViewFlowLayout{
     
     private func setup() {
         scrollDirection = .vertical
-        minimumLineSpacing = 5
-        itemSize = CGSize(width: collectionView!.bounds.width - leftRightInset*2, height: collectionView!.bounds.height/3)
+        minimumLineSpacing = 15
+        itemSize = CGSize(width: collectionView!.bounds.width/2 - leftRightInset*2, height: collectionView!.bounds.height/4)
         //Margins
         sectionInset = UIEdgeInsets(top: leftRightInset, left: leftRightInset, bottom: leftRightInset, right: leftRightInset)
         collectionView!.decelerationRate = UIScrollView.DecelerationRate.fast

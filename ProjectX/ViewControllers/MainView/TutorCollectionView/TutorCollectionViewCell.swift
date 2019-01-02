@@ -45,7 +45,7 @@ class TutorCollectionViewCell: UICollectionViewCell {
     func setupUI(){
         //cell setup
         layer.cornerRadius = 10
-        backgroundColor = .red
+        backgroundColor = .white
         
         //profilepic setup
 //        if let profilePic = profilePic{
@@ -54,13 +54,23 @@ class TutorCollectionViewCell: UICollectionViewCell {
 //        }
         profilePic.contentMode = .scaleToFill
         profilePic.layer.masksToBounds = true
-        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2.0
+        profilePic.layer.cornerRadius = profilePic.frame.size.width / 4.0
         
         //subjectTitle setup
         subject.textAlignment = .center
+        subject.font = UIFont.boldSystemFont(ofSize: 15)
+        subject.backgroundColor = .red
         
         //tutorName setup
-        tutorName.font = UIFont.boldSystemFont(ofSize: 20)
+        tutorName.font = UIFont.boldSystemFont(ofSize: 15)
+        tutorName.backgroundColor = .green
+        
+        //hourlyPay setup
+        hourlyPay.backgroundColor = Constants.green
+        hourlyPay.textAlignment = .center
+        hourlyPay.textColor = .white
+        hourlyPay.layer.masksToBounds = true
+        hourlyPay.layer.cornerRadius = 10
     }
     
     func setupConstraints(){
@@ -69,18 +79,37 @@ class TutorCollectionViewCell: UICollectionViewCell {
         subject.topAnchor.constraint(equalTo: topAnchor).isActive = true
         subject.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         subject.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        subject.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15).isActive = true
+
         
         //ProfilePic Constraints
         profilePic.translatesAutoresizingMaskIntoConstraints = false
-        profilePic.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        profilePic.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2).isActive = true
+        profilePic.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        profilePic.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
         profilePic.topAnchor.constraint(equalTo: subject.bottomAnchor, constant : 10).isActive = true
-        profilePic.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2).isActive = true
+        profilePic.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
         
         //tutorName Constraints
         
         tutorName.translatesAutoresizingMaskIntoConstraints = false
         tutorName.topAnchor.constraint(equalTo: subject.bottomAnchor, constant: 10).isActive = true
         tutorName.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 10).isActive = true
+        tutorName.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-10).isActive = true
+        tutorName.heightAnchor.constraint(equalTo: profilePic.heightAnchor, multiplier: 0.45).isActive = true
+        
+        //hourlyPay Constraints
+        
+        hourlyPay.translatesAutoresizingMaskIntoConstraints = false
+        hourlyPay.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-10).isActive = true
+        hourlyPay.heightAnchor.constraint(equalTo: tutorName.heightAnchor, multiplier: 1).isActive = true
+        hourlyPay.bottomAnchor.constraint(equalTo: profilePic.bottomAnchor).isActive = true
+        hourlyPay.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 10).isActive = true
+        
+        //Description Constraints
+        subjectDescription?.translatesAutoresizingMaskIntoConstraints = false
+        subjectDescription?.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-10).isActive = true
+        subjectDescription?.heightAnchor.constraint(equalTo: tutorName.heightAnchor, multiplier: 1).isActive = true
+        subjectDescription?.bottomAnchor.constraint(equalTo: profilePic.bottomAnchor).isActive = true
+        subjectDescription?.leadingAnchor.constraint(equalTo: profilePic.leadingAnchor, constant: 10).isActive = true
     }
 }
