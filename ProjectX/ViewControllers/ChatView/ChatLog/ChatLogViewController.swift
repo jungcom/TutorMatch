@@ -79,6 +79,7 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.title = user?.firstName
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
         collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = UIColor.white
