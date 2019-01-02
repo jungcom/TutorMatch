@@ -21,7 +21,9 @@ class TutorCollectionViewCell: UICollectionViewCell {
             if let subjDes = post.subjectDescription{
                 self.subjectDescription?.text = subjDes
             }
-            self.subject.text = post.subject
+            
+            self.subject.text = post.subject?.capitalized
+            
             if let pay = post.hourlyPay{
                 if pay != "Free"{
                     self.hourlyPay.text = "$\(pay)/hour"
@@ -29,8 +31,11 @@ class TutorCollectionViewCell: UICollectionViewCell {
                     self.hourlyPay.text = "Free"
                 }
             }
+            
             if let fn = post.userFirstName, let ln = post.userLastName{
-                self.tutorName.text = "\(fn) \(ln)"
+                let capfn = fn.capitalized
+                let capln = ln.capitalized
+                self.tutorName.text = "\(capfn) \(capln)"
             }
         }
     }
@@ -62,8 +67,9 @@ class TutorCollectionViewCell: UICollectionViewCell {
         subject.backgroundColor = .red
         
         //tutorName setup
-        tutorName.font = UIFont.boldSystemFont(ofSize: 15)
+        tutorName.font = UIFont.boldSystemFont(ofSize: 11)
         tutorName.backgroundColor = .green
+        tutorName.textAlignment = .center
         
         //hourlyPay setup
         hourlyPay.backgroundColor = Constants.green
@@ -71,6 +77,10 @@ class TutorCollectionViewCell: UICollectionViewCell {
         hourlyPay.textColor = .white
         hourlyPay.layer.masksToBounds = true
         hourlyPay.layer.cornerRadius = 10
+        
+        //subject Description setup
+        subjectDescription?.backgroundColor = .gray
+        subjectDescription?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
     }
     
     func setupConstraints(){
@@ -107,9 +117,9 @@ class TutorCollectionViewCell: UICollectionViewCell {
         
         //Description Constraints
         subjectDescription?.translatesAutoresizingMaskIntoConstraints = false
-        subjectDescription?.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-10).isActive = true
-        subjectDescription?.heightAnchor.constraint(equalTo: tutorName.heightAnchor, multiplier: 1).isActive = true
-        subjectDescription?.bottomAnchor.constraint(equalTo: profilePic.bottomAnchor).isActive = true
-        subjectDescription?.leadingAnchor.constraint(equalTo: profilePic.leadingAnchor, constant: 10).isActive = true
+        subjectDescription?.trailingAnchor.constraint(equalTo: hourlyPay.trailingAnchor).isActive = true
+        subjectDescription?.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant:10).isActive = true
+        subjectDescription?.bottomAnchor.constraint(equalTo: bottomAnchor, constant:-10).isActive = true
+        subjectDescription?.leadingAnchor.constraint(equalTo: profilePic.leadingAnchor).isActive = true
     }
 }
