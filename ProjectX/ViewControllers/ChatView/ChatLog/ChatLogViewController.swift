@@ -109,7 +109,8 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
         let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
         let keyboardDuration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         
-        containerViewBottomAnchor?.constant = -keyboardFrame!.height
+        let bottomPadding = view.safeAreaInsets.bottom
+        containerViewBottomAnchor?.constant = -(keyboardFrame!.height-bottomPadding)
         UIView.animate(withDuration: keyboardDuration!, animations: {
             self.view.layoutIfNeeded()
         })
@@ -146,10 +147,9 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
     
     fileprivate func setupCell(_ message: Message, _ cell: ChatMessageCell) {
         
-        //TODO: Setup profile image
-//        if let profileImageUrl = self.user?.profileImageUrl {
-//            cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
-//        }
+        if let profileImageUrl = self.user?.profileImageUrl {
+            cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
+        }
         
         if message.fromId == Auth.auth().currentUser?.uid{
             cell.bubbleView.backgroundColor = Constants.purple
@@ -198,7 +198,13 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
     var containerViewBottomAnchor: NSLayoutConstraint?
     
     func setupUI(){
+        let tabBarHeight = self.tabBarController?.tabBar.frame.height
+        print(tabBarHeight!)
+        self.tabBarController?.tabBar.barTintColor = .white
+        self.tabBarController?.tabBar.backgroundColor = .white
         self.tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isTranslucent = true
+        
         
         let containerView = UIView()
         containerView.backgroundColor = UIColor.white
@@ -208,10 +214,12 @@ class ChatLogViewController: UICollectionViewController, UITextFieldDelegate, UI
         
         //Constraints
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        containerViewBottomAnchor = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        containerViewBottomAnchor = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+//        containerViewBottomAnchor = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+
         containerViewBottomAnchor?.isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.08).isActive = true
         
         //Send button
         let sendButton = UIButton(type: .system)
