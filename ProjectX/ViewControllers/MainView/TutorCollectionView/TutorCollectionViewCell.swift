@@ -17,6 +17,8 @@ class TutorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var tutorName: UILabel!
     
+    var topContainer = UIView()
+    
     var post:Post!{
         didSet{
             if let subjDes = post.subjectDescription{
@@ -66,14 +68,13 @@ class TutorCollectionViewCell: UICollectionViewCell {
     }
     
     func setupUI(){
+        //top Container Setup
+        topContainer.backgroundColor = Constants.purple
+        
         //cell setup
         layer.cornerRadius = 10
         backgroundColor = Constants.lightPurple
-        //profilepic setup
-//        if let profilePic = profilePic{
-//            profilePic.layer.cornerRadius = 15
-//            profilePic.clipsToBounds = true
-//        }
+        
         profilePic.contentMode = .scaleToFill
         profilePic.layer.masksToBounds = true
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 4.0
@@ -82,8 +83,8 @@ class TutorCollectionViewCell: UICollectionViewCell {
         subject.textAlignment = .center
         subject.font = UIFont.boldSystemFont(ofSize: 16)
         subject.textColor = .white
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
-        subject.backgroundColor = Constants.purple
+        subject.isScrollEnabled = false
+        subject.backgroundColor = UIColor(white: 0.0, alpha: 0)
         
         //tutorName setup
         tutorName.font = UIFont.boldSystemFont(ofSize: 13)
@@ -99,30 +100,39 @@ class TutorCollectionViewCell: UICollectionViewCell {
         hourlyPay.layer.cornerRadius = 10
         
         //subject Description setup
-        subjectDescription?.backgroundColor = Constants.lightPurple
+        subjectDescription?.backgroundColor = UIColor(red: 207/255, green: 175/255, blue: 255/255, alpha: 0.9)
         subjectDescription?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        subjectDescription?.layer.cornerRadius = 10
+        subjectDescription?.layer.masksToBounds = true
     }
     
     func setupConstraints(){
+        //top container Constraints
+        
+        addSubview(topContainer)
+        topContainer.translatesAutoresizingMaskIntoConstraints = false
+        topContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        topContainer.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        topContainer.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        topContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15).isActive = true
+        
         //subjectTitle Constraints
+        topContainer.addSubview(subject)
         subject.translatesAutoresizingMaskIntoConstraints = false
-        subject.topAnchor.constraint(equalTo: topAnchor).isActive = true
         subject.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        subject.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        subject.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15).isActive = true
-
+        subject.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor).isActive = true
         
         //ProfilePic Constraints
         profilePic.translatesAutoresizingMaskIntoConstraints = false
         profilePic.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         profilePic.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
-        profilePic.topAnchor.constraint(equalTo: subject.bottomAnchor, constant : 10).isActive = true
+        profilePic.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant : 10).isActive = true
         profilePic.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
         
         //tutorName Constraints
         
         tutorName.translatesAutoresizingMaskIntoConstraints = false
-        tutorName.topAnchor.constraint(equalTo: subject.bottomAnchor, constant: 10).isActive = true
+        tutorName.topAnchor.constraint(equalTo: subject.bottomAnchor).isActive = true
         tutorName.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 10).isActive = true
         tutorName.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-10).isActive = true
         tutorName.heightAnchor.constraint(equalTo: profilePic.heightAnchor, multiplier: 0.45).isActive = true
