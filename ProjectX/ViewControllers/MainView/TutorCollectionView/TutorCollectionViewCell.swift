@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TutorCollectionViewCell: UICollectionViewCell {
     
@@ -37,7 +38,24 @@ class TutorCollectionViewCell: UICollectionViewCell {
                 let capln = ln.capitalized
                 self.tutorName.text = "\(capfn) \(capln)"
             }
+            
+            if let user = post.user{
+                setProfilePic(user)
+            }
         }
+    }
+    
+    func setProfilePic(_ uid: String){
+        self.profilePic.image = UIImage(named: "mockPerson")
+        Database.database().reference(fromURL: Constants.databaseURL).child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject]{
+                let user = User()
+                user.setValuesForKeys(dictionary)
+                if let profileImageUrl = user.profileImageUrl{
+                    self.profilePic.loadImageUsingCacheWithUrlString(profileImageUrl)
+                }
+            }
+        })
     }
     
     override func awakeFromNib() {
@@ -50,8 +68,7 @@ class TutorCollectionViewCell: UICollectionViewCell {
     func setupUI(){
         //cell setup
         layer.cornerRadius = 10
-        backgroundColor = .white
-        
+        backgroundColor = Constants.lightPurple
         //profilepic setup
 //        if let profilePic = profilePic{
 //            profilePic.layer.cornerRadius = 15
@@ -63,13 +80,16 @@ class TutorCollectionViewCell: UICollectionViewCell {
         
         //subjectTitle setup
         subject.textAlignment = .center
-        subject.font = UIFont.boldSystemFont(ofSize: 15)
-        subject.backgroundColor = .red
+        subject.font = UIFont.boldSystemFont(ofSize: 16)
+        subject.textColor = .white
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
+        subject.backgroundColor = Constants.purple
         
         //tutorName setup
-        tutorName.font = UIFont.boldSystemFont(ofSize: 11)
-        tutorName.backgroundColor = .green
-        tutorName.textAlignment = .center
+        tutorName.font = UIFont.boldSystemFont(ofSize: 13)
+        tutorName.backgroundColor = Constants.lightPurple
+        tutorName.textColor = .white
+//        tutorName.textAlignment = .center
         
         //hourlyPay setup
         hourlyPay.backgroundColor = Constants.green
@@ -79,7 +99,7 @@ class TutorCollectionViewCell: UICollectionViewCell {
         hourlyPay.layer.cornerRadius = 10
         
         //subject Description setup
-        subjectDescription?.backgroundColor = .gray
+        subjectDescription?.backgroundColor = Constants.lightPurple
         subjectDescription?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
     }
     
@@ -95,9 +115,9 @@ class TutorCollectionViewCell: UICollectionViewCell {
         //ProfilePic Constraints
         profilePic.translatesAutoresizingMaskIntoConstraints = false
         profilePic.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        profilePic.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        profilePic.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
         profilePic.topAnchor.constraint(equalTo: subject.bottomAnchor, constant : 10).isActive = true
-        profilePic.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        profilePic.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
         
         //tutorName Constraints
         

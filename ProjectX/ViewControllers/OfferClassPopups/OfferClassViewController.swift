@@ -40,7 +40,6 @@ class OfferClassViewController: UIViewController {
                 if let dictionary = snapshot.value as? [String: AnyObject]{
                     self.userData = User()
                     self.userData?.setValuesForKeys(dictionary)
-                    print(self.userData)
                 }
             })
         } else {
