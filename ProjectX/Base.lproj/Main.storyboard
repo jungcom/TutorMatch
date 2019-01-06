@@ -761,7 +761,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0Q-Ao-nHv">
-                                <rect key="frame" x="36" y="740" width="343" height="53"/>
+                                <rect key="frame" x="36" y="635" width="343" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
@@ -790,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7e-YY-XdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3482.608695652174" y="747.32142857142856"/>
+            <point key="canvasLocation" x="3482.608695652174" y="746.73913043478262"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fpK-9N-fEH">

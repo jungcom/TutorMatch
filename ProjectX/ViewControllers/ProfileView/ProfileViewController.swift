@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var topContainer = UIView()
+    
     var posts = [Post]()
     var uid : String?
     var currentUser = User()
@@ -25,6 +27,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        setupConstraints()
         setupUI()
         checkIfUserIsLoggedIn()
         observeUserClasses()
@@ -53,19 +56,6 @@ class ProfileViewController: UIViewController {
                 })
             }
         }
-    }
-    
-    func setupUI(){
-        self.profileView.backgroundColor = UIColor(patternImage: UIImage(named: "purple")!)
-        
-        //logoutButton
-        logoutButton.layer.cornerRadius = 5
-        logoutButton.clipsToBounds = true
-        
-        //Profile Picture
-        
-        profilePic.layer.cornerRadius = 20
-        profilePic.layer.masksToBounds = true
     }
 
     @IBAction func logout(_ sender: Any) {

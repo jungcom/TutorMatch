@@ -23,5 +23,7 @@ class TutorFlowLayout: UICollectionViewFlowLayout{
         //Margins
         sectionInset = UIEdgeInsets(top: leftRightInset, left: leftRightInset, bottom: leftRightInset, right: leftRightInset)
         collectionView!.decelerationRate = UIScrollView.DecelerationRate.fast
+        invalidateLayout()
     }
+    
 }

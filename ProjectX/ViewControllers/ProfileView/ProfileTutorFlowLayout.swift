@@ -21,5 +21,6 @@ class ProfileTutorFlowLayout: UICollectionViewFlowLayout{
         //Margins
         sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
         collectionView!.decelerationRate = UIScrollView.DecelerationRate.fast
+        invalidateLayout()
     }
 }
