@@ -10,8 +10,8 @@ The following functionalities are complete:
 - [O] User can sign up and sign in to the login screen and sees alerts for login exceptions, i.e. "account already exists", "wrong credentials"
 - [O] User can view a list of open classes/sessions in chronological order
 - [O] User can post a class/session
-- [O] User has a profile page that shows the list of classes they are taking (+2pt)
-- [O] Persist Logged in User (+1pt)
+- [O] User has a profile page that shows the list of classes they are taking
+- [O] Persist Logged in User
 
 The following functionalities should be implemented:
 
