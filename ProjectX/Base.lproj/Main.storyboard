@@ -209,7 +209,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oj9-WE-iA2">
-                                <rect key="frame" x="252" y="710.66666666666663" width="51" height="25.333333333333371"/>
+                                <rect key="frame" x="252" y="710.33333333333337" width="51" height="25.666666666666629"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Sign Up">
@@ -761,7 +761,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0Q-Ao-nHv">
-                                <rect key="frame" x="36" y="747" width="343" height="46"/>
+                                <rect key="frame" x="16" y="669" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
@@ -782,6 +782,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="AdI-63-YDR" id="wqQ-ip-M6G"/>
+                        <outlet property="collectionviewTitle" destination="Mrt-8e-9On" id="BWj-0e-3iy"/>
                         <outlet property="logoutButton" destination="K0Q-Ao-nHv" id="8za-4r-Yy7"/>
                         <outlet property="profilePic" destination="5ne-If-eda" id="q3g-cw-FWX"/>
                         <outlet property="profileView" destination="5tW-HF-3X1" id="ZK1-kn-BCe"/>
@@ -790,7 +791,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7e-YY-XdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3482.608695652174" y="746.73913043478262"/>
+            <point key="canvasLocation" x="3482.4000000000001" y="746.30541871921184"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fpK-9N-fEH">
@@ -1016,6 +1017,6 @@
         <image name="profile" width="22" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mlY-ln-k4s"/>
+        <segue reference="BsD-DR-5Gq"/>
     </inferredMetricsTieBreakers>
 </document>

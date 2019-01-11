@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var collectionviewTitle: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
