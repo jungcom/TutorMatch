@@ -96,7 +96,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -107,7 +107,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height/2.2)
+    }
 }
 
 extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
